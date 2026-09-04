@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Coastal restoration: mangrove forest above the waterline and coral reef below, with ocean alkalinity enhancement">
+<defs><clipPath id="ccc"><rect width="1200" height="800"/></clipPath></defs>
+<g clip-path="url(#ccc)">
+  <rect width="1200" height="800" fill="#DCE7E4"/>
+  <circle cx="1010" cy="140" r="88" fill="#D7B65B" opacity=".42"/>
+  <g fill="#C6D8D4" opacity=".9"><ellipse cx="260" cy="136" rx="146" ry="42"/><ellipse cx="370" cy="114" rx="90" ry="30"/></g>
+
+  <!-- mangrove canopy -->
+  <g fill="#3F7047">
+    <ellipse cx="150" cy="330" rx="130" ry="76"/><ellipse cx="330" cy="300" rx="150" ry="86"/>
+    <ellipse cx="520" cy="332" rx="126" ry="72"/><ellipse cx="660" cy="352" rx="96" ry="56"/>
+  </g>
+  <g fill="#5F9B68" opacity=".85">
+    <ellipse cx="240" cy="360" rx="96" ry="52"/><ellipse cx="440" cy="366" rx="90" ry="48"/>
+  </g>
+  <!-- prop roots -->
+  <g stroke="#4B4030" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M150 396 V470 M120 400 L92 472 M186 400 L214 472"/>
+    <path d="M330 384 V470 M296 392 L266 472 M368 392 L400 472"/>
+    <path d="M520 400 V470 M492 404 L466 472 M552 404 L580 472"/>
+    <path d="M660 404 V470 M636 408 L614 472 M686 408 L710 472"/>
+  </g>
+  <!-- waterline -->
+  <rect x="0" y="470" width="1200" height="330" fill="#6FA8A1"/>
+  <rect x="0" y="470" width="1200" height="8" fill="#8FC3BC"/>
+  <g stroke="#8FC3BC" stroke-width="4" fill="none" opacity=".7">
+    <path d="M0 508 Q120 494 240 508 T480 508 T720 508 T960 508 T1200 508"/>
+    <path d="M0 546 Q120 532 240 546 T480 546 T720 546 T960 546 T1200 546"/>
+  </g>
+  <!-- alkalinity dosing plume -->
+  <g fill="#EAF3F1" opacity=".55">
+    <circle cx="880" cy="530" r="9"/><circle cx="916" cy="560" r="7"/><circle cx="864" cy="580" r="6"/>
+    <circle cx="922" cy="606" r="8"/><circle cx="874" cy="632" r="5"/>
+  </g>
+  <g font-family="DM Sans, sans-serif" font-size="30" fill="#0B2318" opacity=".68">
+    <text x="944" y="540">alkalinity ↑</text>
+  </g>
+  <!-- seabed and coral -->
+  <path d="M0 700 Q240 664 520 696 T1200 676 V800 H0 Z" fill="#C9B98E"/>
+  <g fill="#D97B4F">
+    <path d="M180 700c-4-40 8-64 22-64s22 22 18 46c14-16 30-14 32 6 2 18-10 26-30 26z"/>
+    <path d="M420 704c-6-46 8-72 24-72s24 24 20 52c16-18 34-16 36 6 2 20-12 30-34 30z"/>
+  </g>
+  <g fill="#E0A07A">
+    <path d="M300 706c-4-32 6-52 18-52s18 18 15 38c11-13 24-11 26 5 1 15-8 21-24 21z"/>
+    <path d="M700 700c-5-38 7-60 20-60s20 20 17 44c13-15 28-13 30 5 1 17-10 24-28 24z"/>
+  </g>
+  <g fill="#4B7A52" opacity=".8">
+    <path d="M560 704q-10-46 4-70 10 30 6 70z"/><path d="M596 706q-12-40 0-62 12 26 8 62z"/>
+    <path d="M980 696q-10-44 4-68 10 30 6 68z"/><path d="M1014 698q-12-38 0-60 12 26 8 60z"/>
+  </g>
+  <g fill="#8FC3BC" opacity=".55">
+    <ellipse cx="760" cy="600" rx="26" ry="12"/><ellipse cx="820" cy="648" rx="20" ry="9"/>
+    <ellipse cx="140" cy="620" rx="24" ry="11"/>
+  </g>
+</g>
+</svg>

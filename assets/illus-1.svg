@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="Landscape illustration showing farmland, a pyrolysis unit and restored forest under an open sky">
+<defs>
+  <clipPath id="hclip"><rect width="1400" height="900" rx="0"/></clipPath>
+</defs>
+<g clip-path="url(#hclip)">
+<rect width="1400" height="900" fill="#DCE7E4"/>
+<circle cx="1130" cy="180" r="110" fill="#D7B65B" opacity=".45"/>
+<g fill="#C6D8D4" opacity=".9">
+  <ellipse cx="260" cy="150" rx="150" ry="46"/><ellipse cx="360" cy="126" rx="96" ry="36"/>
+  <ellipse cx="880" cy="230" rx="130" ry="40"/>
+</g>
+<path d="M0 470 Q220 400 460 448 T900 424 T1400 462 V900 H0 Z" fill="#B7CFB0"/>
+<g fill="#5F9B68" opacity=".8">
+  <path d="M60 470 L120 316 L180 470 Z"/><path d="M170 470 L216 356 L262 470 Z"/>
+  <path d="M1180 470 L1240 322 L1300 470 Z"/><path d="M1290 470 L1336 358 L1382 470 Z"/>
+</g>
+<path d="M0 560 Q300 512 620 552 T1400 528 V900 H0 Z" fill="#98BA8E"/>
+<path d="M0 672 Q340 626 700 664 T1400 640 V900 H0 Z" fill="#7CA473"/>
+<g stroke="#4B7A52" stroke-width="3" opacity=".55">
+  <path d="M0 716 Q340 670 700 708 T1400 684"/>
+  <path d="M0 756 Q340 710 700 748 T1400 724"/>
+  <path d="M0 800 Q340 754 700 792 T1400 768"/>
+</g>
+<g transform="translate(660 400)">
+  <rect x="-92" y="0" width="184" height="180" rx="26" fill="#123021"/>
+  <rect x="-92" y="0" width="184" height="44" rx="22" fill="#007843"/>
+  <rect x="-56" y="76" width="112" height="70" rx="14" fill="#D97B4F" opacity=".85"/>
+  <rect x="-30" y="-96" width="26" height="100" rx="10" fill="#123021"/>
+  <g fill="#C6D8D4" opacity=".75">
+    <ellipse cx="-17" cy="-118" rx="24" ry="14"/><ellipse cx="-4" cy="-152" rx="32" ry="18"/>
+  </g>
+  <rect x="-140" y="132" width="76" height="48" rx="12" fill="#8A6B3A"/>
+  <rect x="66" y="132" width="76" height="48" rx="12" fill="#1F1F1F"/>
+</g>
+<g stroke="#006035" stroke-width="10" fill="none" stroke-linecap="round">
+  <g transform="translate(300 640)"><path d="M0 0 V-110"/><path d="M0 -46 L-40 26"/><path d="M0 -46 L40 26"/></g>
+  <g transform="translate(1090 620)"><path d="M0 0 V-124"/><path d="M0 -52 L-44 24"/><path d="M0 -52 L44 24"/></g>
+</g>
+<g fill="#007843">
+  <ellipse cx="300" cy="512" rx="86" ry="58"/><ellipse cx="1090" cy="480" rx="98" ry="64"/>
+</g>
+<g fill="#8A6B3A" opacity=".9">
+  <rect x="120" y="600" width="120" height="16" rx="8"/><rect x="140" y="576" width="80" height="16" rx="8"/>
+  <rect x="1200" y="640" width="120" height="16" rx="8"/><rect x="1220" y="616" width="80" height="16" rx="8"/>
+</g>
+<g fill="#1F1F1F" opacity=".75">
+  <rect x="480" y="740" width="24" height="24" rx="7"/><rect x="560" y="784" width="20" height="20" rx="6"/>
+  <rect x="820" y="756" width="24" height="24" rx="7"/><rect x="920" y="800" width="20" height="20" rx="6"/>
+  <rect x="300" y="800" width="22" height="22" rx="7"/><rect x="1080" y="780" width="22" height="22" rx="7"/>
+</g>
+</g>
+</svg>

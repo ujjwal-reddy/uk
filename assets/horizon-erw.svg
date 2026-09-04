@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Enhanced rock weathering: crushed basalt spread over cropland, dissolving and locking carbon dioxide as bicarbonate">
+<defs><clipPath id="erc"><rect width="1200" height="800"/></clipPath></defs>
+<g clip-path="url(#erc)">
+  <rect width="1200" height="800" fill="#DCE7E4"/>
+  <circle cx="205" cy="145" r="86" fill="#D7B65B" opacity=".42"/>
+  <g fill="#C6D8D4" opacity=".9"><ellipse cx="820" cy="150" rx="150" ry="44"/><ellipse cx="930" cy="126" rx="92" ry="32"/></g>
+  <!-- basalt ridge -->
+  <path d="M760 430 L900 236 L1010 340 L1090 250 L1200 430 Z" fill="#8E9AA0"/>
+  <path d="M900 236 L960 300 L1010 340 L900 340 Z" fill="#A8B3B8"/>
+  <path d="M0 452 Q220 402 460 442 T900 424 T1200 448 V800 H0 Z" fill="#B7CFB0"/>
+  <path d="M0 540 Q300 500 620 534 T1200 514 V800 H0 Z" fill="#98BA8E"/>
+
+  <!-- crop rows -->
+  <g fill="none" stroke="#6E9A66" stroke-width="9" stroke-linecap="round" opacity=".85">
+    <path d="M60 640 Q400 606 1140 636"/><path d="M40 690 Q400 654 1160 686"/>
+    <path d="M20 742 Q400 704 1180 738"/>
+  </g>
+  <!-- crushed basalt dust spread over the rows -->
+  <g fill="#6B7780">
+    <circle cx="140" cy="614" r="5"/><circle cx="255" cy="606" r="4"/><circle cx="372" cy="600" r="6"/>
+    <circle cx="500" cy="598" r="4"/><circle cx="640" cy="600" r="5"/><circle cx="790" cy="606" r="4"/>
+    <circle cx="930" cy="610" r="6"/><circle cx="1075" cy="616" r="4"/>
+    <circle cx="200" cy="668" r="4"/><circle cx="430" cy="658" r="5"/><circle cx="700" cy="660" r="4"/>
+    <circle cx="980" cy="666" r="5"/><circle cx="300" cy="720" r="5"/><circle cx="620" cy="714" r="4"/>
+    <circle cx="900" cy="718" r="5"/>
+  </g>
+  <!-- CO2 drawn down into the soil -->
+  <g stroke="#2E3A33" stroke-width="3.5" fill="none" opacity=".6">
+    <path d="M300 440 V560" marker-end="url(#ar)"/><path d="M600 424 V548"/><path d="M880 436 V566"/>
+  </g>
+  <g fill="#2E3A33" opacity=".6">
+    <path d="M292 556 L300 574 L308 556 Z"/><path d="M592 544 L600 562 L608 544 Z"/><path d="M872 562 L880 580 L888 562 Z"/>
+  </g>
+  <g font-family="DM Sans, sans-serif" font-size="26" fill="#2E3A33" opacity=".75">
+    <text x="316" y="424">CO₂</text><text x="616" y="408">CO₂</text><text x="896" y="420">CO₂</text>
+  </g>
+  <!-- stable bicarbonate held below -->
+  <rect x="0" y="770" width="1200" height="30" fill="#7CA473"/>
+  <g font-family="DM Sans, sans-serif" font-size="22" fill="#0B2318" opacity=".72">
+    <text x="40" y="791">HCO₃⁻ — stable bicarbonate, carried to groundwater</text>
+  </g>
+</g>
+</svg>
