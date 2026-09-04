@@ -874,7 +874,7 @@
       new THREE.MeshStandardMaterial({ color: 0x22333c, roughness: 0.5, metalness: 0.7 })
     );
     stack.position.set(0.95, 1.0, -0.35);
-    var coreGlow = new THREE.Mesh(new THREE.SphereGeometry(0.34, 24, 24), glowMat(0x2ef0a5, 0.5));
+    var coreGlow = new THREE.Mesh(new THREE.SphereGeometry(0.30, 24, 24), glowMat(0x2ef0a5, 0.28));
     coreGlow.position.y = 0.35;
     plantCore.add(column, cap, stack, coreGlow);
     plantGroup.add(plantCore);
@@ -896,7 +896,7 @@
           emissive: new THREE.Color(0x2ef0a5), emissiveIntensity: 0.8 })
       );
       lid.position.y = 0.62;
-      var flame = new THREE.Mesh(new THREE.SphereGeometry(0.2, 18, 18), glowMat(0xff9d3d, 0.55));
+      var flame = new THREE.Mesh(new THREE.SphereGeometry(0.15, 18, 18), glowMat(0xff9d3d, 0.28));
       flame.position.y = 0.78;
       // syngas return pipe to the central column
       var pipe = new THREE.Mesh(
@@ -964,7 +964,7 @@
     ];
     PROCESS.forEach(function (p, i) {
       var n = new THREE.Group();
-      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.135, 1), glowMat(0x2ef0a5, 0.95));
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.125, 1), glowMat(0x2ef0a5, 0.7));
       var halo = new THREE.Mesh(new THREE.SphereGeometry(0.30, 18, 18), glowMat(0x2ef0a5, 0.13));
       var ring = new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.008, 8, 40), glowMat(0x35d6ff, 0.75));
       ring.rotation.x = Math.PI / 2;
@@ -986,13 +986,13 @@
 
     var COLORS = [0x35f08a, 0xa8e06a, 0x35d6ff];
     var RADIUS = [3.3, 3.3, 3.3];
-    var ANGLES = [-0.55, 0.35, 1.55];
-    var HEIGHT = [1.15, -0.35, -1.35];
+    var ANGLES = [0.35, 2.44, 4.53];   // 120 deg apart
+    var HEIGHT = [1.25, -0.15, -1.40];
 
     HORIZONS.forEach(function (h, i) {
       var n = new THREE.Group();
       var col = COLORS[i];
-      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.22, 1), glowMat(col, 0.95));
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.18, 1), glowMat(col, 0.55));
       var halo = new THREE.Mesh(new THREE.SphereGeometry(0.52, 20, 20), glowMat(col, 0.12));
       var ring = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.01, 8, 56), glowMat(col, 0.8));
       ring.rotation.x = Math.PI / 2.6;
@@ -1111,22 +1111,22 @@
   var STATIONS = [
     { // 0 · hero — the planet at rest, already hazed
       sel: '#hero', dot: 0,
-      camPos: [0, 0.7, 13.2], camTarget: [0, 0, 0],
-      pollution: 0.5, restoration: 0.02, plant: 0, earthScale: 1.0, earthPos: [0, 0, 0]
+      camPos: [0, 0.7, 13.2], camTarget: [0.5, 0.1, 0],
+      pollution: 0.5, restoration: 0.02, plant: 0, earthScale: 0.95, earthPos: [3.3, -0.9, -1.5]
     },
     { // 1 · problem — pushed in, smog at maximum
       sel: '#problem', dot: 1,
-      camPos: [3.1, 1.1, 6.9], camTarget: [0.35, 0.05, 0],
-      pollution: 1.0, restoration: 0.0, plant: 0, earthScale: 1.05, earthPos: [0, 0, 0]
+      camPos: [2.2, 1.0, 10.5], camTarget: [0.3, 0.05, 0],
+      pollution: 1.0, restoration: 0.0, plant: 0, earthScale: 1.05, earthPos: [4.5, 0.2, -1.0]
     },
     { // 2 · solution — earth recedes, the pyrolysis unit takes the stage
       sel: '#solution', dot: 2,
-      camPos: [0.4, 1.6, 9.4], camTarget: [0, 0.15, 0],
+      camPos: [0.4, 1.3, 11.8], camTarget: [0.2, -0.30, 0],
       pollution: 0.42, restoration: 0.25, plant: 1, earthScale: 0.40, earthPos: [-8.6, 3.4, -13.5]
     },
     { // 3 · solution hold — anchored to the final process step
       sel: '.step:last-child', dot: 2, anchor: 'bottom',
-      camPos: [-0.6, 1.2, 8.6], camTarget: [0, 0.1, 0],
+      camPos: [-0.4, 1.0, 11.2], camTarget: [0.2, -0.30, 0],
       pollution: 0.30, restoration: 0.35, plant: 1, earthScale: 0.40, earthPos: [-8.6, 3.4, -13.5]
     },
     { // 4 · horizons — the planet returns, restored, with three nodes
@@ -1134,7 +1134,12 @@
       camPos: [0.2, 0.9, 11.6], camTarget: [0, 0, 0],
       pollution: 0.05, restoration: 1.0, plant: 0, earthScale: 1.0, earthPos: [0, 0, 0]
     },
-    { // 5 · contact — pull back, clean sky
+    { // 5 · horizon cards — planet lifts clear so the cards get their own room
+      sel: '#horizonGrid', dot: 3,
+      camPos: [0, 0.6, 12.0], camTarget: [0, 0.2, 0],
+      pollution: 0.02, restoration: 1.0, plant: 0, earthScale: 0.62, earthPos: [0, 2.6, -2.0]
+    },
+    { // 6 · contact — pull back, clean sky
       sel: '#contact', dot: 4,
       camPos: [0, 3.0, 15.5], camTarget: [0, -0.7, 0],
       pollution: 0.0, restoration: 1.0, plant: 0, earthScale: 0.92, earthPos: [0, -1.1, 0]
@@ -1207,6 +1212,7 @@
       lerp(a.camTarget[2], b.camTarget[2], t)
     );
 
+    refreshOccluders();
     updateChrome();
   }
 
@@ -1235,6 +1241,27 @@
   /* =======================================================================
      7. HOTSPOT PROJECTION
      ===================================================================== */
+  /* Rects of the cards a marker must not be drawn over. Refreshed with the
+     scroll handler rather than per frame, so this costs no extra layout. */
+  var occluders = [];
+  function refreshOccluders() {
+    if (window.innerWidth <= 780) { occluders = []; return; }
+    occluders = $$('.step__card, .panel, .horizon').reduce(function (acc, el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom > -40 && r.top < window.innerHeight + 40 && r.width > 0) {
+        acc.push({ l: r.left - 10, r: r.right + 10, t: r.top - 10, b: r.bottom + 10 });
+      }
+      return acc;
+    }, []);
+  }
+  function isOccluded(x, y) {
+    for (var i = 0; i < occluders.length; i++) {
+      var o = occluders[i];
+      if (x > o.l && x < o.r && y > o.t && y < o.b) return true;
+    }
+    return false;
+  }
+
   function updateMarkers() {
     if (!running || window.innerWidth <= 780) return;
     var w = window.innerWidth, h = window.innerHeight;
@@ -1254,6 +1281,7 @@
       var x = (projected.x * 0.5 + 0.5) * w;
       var y = (-projected.y * 0.5 + 0.5) * h;
       if (x < -80 || x > w + 80 || y < -60 || y > h + 60) { m.el.classList.remove('is-on'); return; }
+      if (isOccluded(x, y)) { m.el.classList.remove('is-on'); return; }
 
       m.el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
       m.el.classList.add('is-on');
@@ -1381,9 +1409,11 @@
     var pShown = state.plant > 0.01;
     plantGroup.visible = pShown;
     if (pShown) {
-      var s = 0.55 + state.plant * 0.75;
+      var s = 0.42 + state.plant * 0.43;
       plantGroup.scale.setScalar(s * state.plant);
       plantGroup.rotation.y += dt * 0.085;
+      // held to the right so the unit clears the step cards on the left
+      plantGroup.position.x = 3.9 * state.plant;
       plantGroup.position.y = -0.4 + Math.sin(t * 0.5) * 0.08;
 
       plantRing.rotation.z += dt * 0.35;
@@ -1395,8 +1425,8 @@
       kilns.forEach(function (k, i) {
         var burn = 0.4 + Math.abs(Math.sin(t * 1.4 + k.userData.phase)) * 0.6;
         k.userData.flame.scale.setScalar(0.7 + burn * 0.6);
-        k.userData.flame.material.opacity = 0.25 + burn * 0.45;
-        k.userData.lid.material.emissiveIntensity = 0.45 + burn * 0.7;
+        k.userData.flame.material.opacity = 0.12 + burn * 0.22;
+        k.userData.lid.material.emissiveIntensity = 0.22 + burn * 0.30;
         k.position.y = -0.78 + Math.sin(t * 0.9 + i) * 0.03;
       });
 
@@ -1409,7 +1439,7 @@
         n.userData.core.rotation.x += dt * 0.5;
         n.userData.ring.rotation.z += dt * (live ? 1.6 : 0.7);
         n.userData.halo.material.opacity = (live ? 0.30 : 0.12) * state.plant;
-        n.userData.core.material.opacity = state.plant;
+        n.userData.core.material.opacity = 0.7 * state.plant;
         n.userData.ring.material.opacity = (live ? 0.95 : 0.6) * state.plant;
       });
     }
@@ -1430,7 +1460,7 @@
         n.userData.core.rotation.y += dt * 0.6;
         n.userData.ring.rotation.z += dt * 0.5;
         n.userData.ring2.rotation.z -= dt * 0.32;
-        n.userData.core.material.opacity = vis;
+        n.userData.core.material.opacity = 0.55 * vis;
         n.userData.halo.material.opacity = (live ? 0.26 : 0.12) * vis;
         n.userData.ring.material.opacity = 0.8 * vis;
         n.userData.ring2.material.opacity = 0.4 * vis;
