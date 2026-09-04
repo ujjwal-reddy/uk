@@ -178,9 +178,9 @@
   var PRODUCTS = [
     {
       id: 'p-biochar', tag: 'Product 01', title: 'Crop-Specific Biochar', sub: 'Inoculated soil amendment',
+      tone: 'char', swatchColor: '#2B2B28',
       rate: { v: '30 t', l: 'per month' },
       forms: ['Mosambi', 'Banana', 'Pomegranate', 'Groundnut'],
-      swatch: 'linear-gradient(135deg,#2b2b28,#0e0e0c)', glow: 'rgba(47,191,119,.22)',
       short: 'Porous carbon pre-charged with manure, wood ash, bone meal and micronutrients, then blended to a formulation for the crop it is going under.',
       lede: 'The flagship line and the only product that carries the carbon claim. Raw char is inoculated before it leaves the plant so it arrives at the field already loaded with nutrients and microbial life, rather than scavenging them from the soil in its first season.',
       metrics: [ { v: '30 t', l: 'Output / month' }, { v: '4', l: 'Crop formulations' }, { v: 'Fe Zn B Mg', l: 'Micronutrient pack' } ],
@@ -201,9 +201,9 @@
     },
     {
       id: 'p-briquette', tag: 'Product 02', title: 'Smokeless Briquettes', sub: 'Pillow · Hexagon · Honeycomb',
+      tone: 'briq', swatchColor: '#4A4038',
       rate: { v: '50 t', l: 'per month' },
       forms: ['Pillow', 'Hexagon', 'Honeycomb'],
-      swatch: 'linear-gradient(135deg,#4a4038,#17130f)', glow: 'rgba(240,145,58,.20)',
       short: 'Charcoal fines densified into three burn profiles. 20 t goes back to feedstock villages at ₹4/kg; 30 t carries the commercial market at ₹35/kg.',
       lede: 'The product that closes the reciprocal loop. Households that supply residue buy back a clean fuel made from it at cost, which is why CE² pays nothing for feedstock and why the open burning stops.',
       metrics: [ { v: '20 t', l: 'Domestic @ ₹4/kg' }, { v: '30 t', l: 'Commercial @ ₹35/kg' }, { v: '3', l: 'Profiles' } ],
@@ -223,9 +223,9 @@
     },
     {
       id: 'p-vinegar', tag: 'Product 03', title: 'Wood Vinegar', sub: 'Organic bio-stimulant',
+      tone: 'vin', swatchColor: '#C79A4B',
       rate: { v: '~13,608 L', l: 'per month' },
       forms: ['Foliar tonic', 'Root drench', 'Pest deterrent'],
-      swatch: 'linear-gradient(135deg,#8a5a22,#3a2410)', glow: 'rgba(217,179,130,.22)',
       short: 'Pyroligneous acid condensed out of the pyrolysis vapour, applied dilute as an organic bio-stimulant and natural pest deterrent.',
       lede: 'The condensate most operations treat as an effluent problem. CE² recovers it as a second agricultural product that sells into the same farms already buying biochar.',
       metrics: [ { v: '~13,608 L', l: 'Recovery / month' }, { v: 'Organic', l: 'Input class' }, { v: '0 L', l: 'Discharged' } ],
@@ -240,9 +240,9 @@
     },
     {
       id: 'p-tar', tag: 'Product 04', title: 'Wood Tar Oil', sub: 'Industrial heavy fraction',
+      tone: 'tar', swatchColor: '#3A2C1F',
       rate: { v: '~2,520 kg', l: 'per month' },
       forms: ['Timber preservative', 'Anti-corrosive', 'Binder feedstock'],
-      swatch: 'linear-gradient(135deg,#3a2c1f,#100b07)', glow: 'rgba(194,112,61,.22)',
       short: 'The heavy fraction separated from the same condenser train — timber preservation, anti-corrosive coating and binder feedstock.',
       lede: 'Separating the tar fraction is not optional book-keeping; it is the step that lets the liquid loop close. Once removed it becomes an industrial product rather than a disposal cost.',
       metrics: [ { v: '~2,520 kg', l: 'Recovery / month' }, { v: '3', l: 'Application classes' }, { v: 'ZLD', l: 'Enables' } ],
@@ -257,9 +257,9 @@
     },
     {
       id: 'p-credit', tag: 'Product 05', title: 'Durable Carbon Credits', sub: 'Isometric registry',
+      tone: 'credit', swatchColor: '#007843',
       rate: { v: '~140 tCO₂e', l: 'per month' },
       forms: ['Soil-applied only', 'Digital MRV', 'Century-scale'],
-      swatch: 'linear-gradient(135deg,#17A05C,#0b3f28)', glow: 'rgba(47,191,119,.3)',
       short: 'Registry-verified durable carbon dioxide removal, issued only on biochar that is proven to have gone into soil.',
       lede: 'The fifth product is the carbon itself. It is claimed on the soil-applied fraction alone — fuel products are excluded — which is precisely what makes the credit defensible to a buyer.',
       metrics: [ { v: '~140 tCO₂e', l: 'Removal / month' }, { v: 'Isometric', l: 'Registry' }, { v: 'Soil-applied', l: 'Eligible basis' } ],
@@ -299,10 +299,148 @@
       meter: 100, note: '~140 tCO₂e / month · Isometric · soil-applied basis.' }
   ];
 
+
+  /** Every smoke stream around Anantapur, paired with what CE² does about it. */
+  var SOURCES = [
+    {
+      id: 's-industry', tag: 'Source 01', title: 'Industrial & Thermal Combustion',
+      sub: 'Factory stacks, boilers, brick and charcoal kilns',
+      emits: 'Continuous point-source CO₂, SO\u2093 and particulates from coal- and diesel-fired boilers, brick clamps and traditional charcoal pits running uncontrolled across the district.',
+      fix: 'CE² commercial briquettes displace coal and fuelwood in exactly these burners — 30 t/month at ₹35/kg — while the plant\u2019s own kilns capture syngas and burn it back as process heat instead of drawing external fuel.',
+      lede: 'The most visible smoke in the district, and the easiest to mistake for someone else\u2019s problem. Industrial and thermal burners run on coal, diesel and raw fuelwood; traditional brick and charcoal kilns burn in the open with no capture at all.',
+      metrics: [ { v: '30 t', l: 'Commercial briquettes / mo' }, { v: '₹35 / kg', l: 'Commercial price' }, { v: 'Syngas', l: 'Recaptured as heat' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          'Point-source <b>CO₂</b> from coal, lignite and diesel combustion, running continuously rather than seasonally.',
+          '<b>SO\u2093 and particulates</b> from unwashed solid fuel, settling over cropland downwind.',
+          '<b>Uncontrolled kiln emissions</b> — brick clamps and traditional charcoal pits vent everything, including the condensable fraction.',
+          'None of it is measured, so none of it is managed.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Smokeless commercial briquettes</b> — a drop-in solid fuel for hospitality, retail and industrial heat, made from residue instead of mined coal.',
+          '<b>Closed-loop kilns</b> — CE² pyrolysis runs oxygen-starved and captures the non-condensable gas, so the reaction feeds its own heat after start-up.',
+          '<b>Zero-liquid discharge</b> — the condensable fraction a traditional kiln loses to the sky is recovered as wood vinegar and tar oil.',
+          '<b>Batch-level records</b> on every cycle, which is what makes the reduction auditable rather than asserted.'
+        ]}
+      ]
+    },
+    {
+      id: 's-residue', tag: 'Source 02', title: 'Open Agricultural Residue Burning',
+      sub: 'Stubble, shells, stems and orchard prunings',
+      emits: 'Groundnut shells, cotton stems and orchard prunings burned in the open at the end of every harvest — carbon that took a season to fix, released in a few hours.',
+      fix: 'CE² collects that same residue free of cost under the reciprocal exchange — roughly 378 t/month — and converts it in closed kilns, so the carbon is banked as biochar instead of vented.',
+      lede: 'This is the stream CE² was built around. Residue burning is not carelessness; it is the cheapest way to clear a field before the next sowing. The only way to stop it is to make the residue worth more than the match.',
+      metrics: [ { v: '~378 t', l: 'Diverted / month' }, { v: '₹0', l: 'Cost to the farmer' }, { v: '365 days', l: 'Burning season here' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          '<b>Biogenic CO₂</b> released in hours instead of being banked for centuries.',
+          '<b>Black carbon and PM2.5</b> across the whole district during clearing windows.',
+          '<b>Carbon monoxide and methane</b> from smouldering, oxygen-starved field fires.',
+          'The soil loses the organic matter that heap would have become.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Free collection</b> of juliflora, bamboo, groundnut shells and cotton stems — the farmer pays nothing and clears the field anyway.',
+          '<b>Reciprocal payment in fuel</b> — the village receives smokeless briquettes at ₹4/kg, so the exchange is worth making.',
+          '<b>Closed-kiln conversion</b> at roughly 378 t/month, turning the fire into biochar, briquettes and recovered liquids.',
+          'Removing the burn removes the emission at source rather than offsetting it elsewhere.'
+        ]}
+      ]
+    },
+    {
+      id: 's-domestic', tag: 'Source 03', title: 'Domestic Cooking Smoke',
+      sub: 'Fuelwood and dung cake in the household chulha',
+      emits: 'Raw fuelwood and dung cake burned indoors on open stoves — a household-scale emission that is also the district\u2019s most direct health burden, borne mostly by women and children.',
+      fix: 'The domestic briquette line is priced at cost — 20 t/month at ₹4/kg — and goes back to the same villages that supplied the feedstock, replacing smoky fuel with a clean-burning one.',
+      lede: 'The smallest stack and the one that matters most to the people standing next to it. CE² treats the domestic fuel line as payment rather than product, which is what makes the whole reciprocal model close.',
+      metrics: [ { v: '20 t', l: 'Domestic briquettes / mo' }, { v: '₹4 / kg', l: 'At cost, not at margin' }, { v: '3', l: 'Burn profiles' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          '<b>Indoor particulate matter</b> at concentrations far above outdoor exposure.',
+          '<b>CO₂ and black carbon</b> from incomplete combustion of wet wood and dung.',
+          '<b>Fuelwood demand</b> that drives the canopy loss feeding back into the same problem.',
+          'The exposure is concentrated on whoever cooks.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Smokeless charcoal briquettes</b> in pillow, hexagon and honeycomb profiles for domestic stoves.',
+          '<b>Priced at cost (₹4/kg)</b> for feedstock-supplying households — deliberately not a margin line.',
+          '<b>Honeycomb profile</b> gives controlled airflow in traditional stoves, so no new appliance is needed.',
+          'Displacing fuelwood also takes pressure off the standing biomass around the village.'
+        ]}
+      ]
+    },
+    {
+      id: 's-fossil', tag: 'Source 04', title: 'Diesel Pumping & Transport',
+      sub: 'Borewell pumpsets, gensets and haulage',
+      emits: 'Falling water tables force deeper bores and longer pumping hours on diesel sets, and every input and output on the farm moves by road.',
+      fix: 'Biochar raises water-holding capacity in sandy red soils, so the same crop needs fewer pumping hours; CE² also produces and distributes locally, keeping collection and delivery routes short.',
+      lede: 'An emission that scales with water scarcity: the drier it gets, the deeper the bore, the longer the pump runs. Anything that helps a soil hold rainfall reduces this directly.',
+      metrics: [ { v: '522 mm', l: 'Annual rainfall to stretch' }, { v: 'WHC ↑', l: 'Water-holding capacity' }, { v: 'Local', l: 'Production & distribution' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          '<b>Diesel CO₂</b> from borewell pumpsets running longer each season as the water table drops.',
+          '<b>Genset emissions</b> filling in for unreliable supply.',
+          '<b>Haulage CO₂</b> on inputs trucked in and produce trucked out.',
+          'Deeper bores also raise the salt load in irrigation water, damaging the soil further.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Biochar porosity</b> raises water-holding capacity on sandy red soils, so a 522 mm rainfall budget goes further.',
+          '<b>Salinity buffering</b> — char holds and dilutes the salts that borewell irrigation carries in.',
+          '<b>Short routes</b> — feedstock is collected from surrounding villages and product is sold back into them.',
+          '<b>Juliflora clearance</b> removes a scrub that is itself drawing down the water table.'
+        ]}
+      ]
+    },
+    {
+      id: 's-fertilizer', tag: 'Source 05', title: 'Chemical Fertilizer',
+      sub: 'Urea manufacture, and N₂O from the field',
+      emits: 'Synthetic nitrogen is energy-intensive to manufacture, and urea-heavy regimes vent nitrous oxide from the root zone — roughly 273× the warming potential of CO₂ — while acidifying the soil.',
+      fix: 'CE² biochar arrives pre-charged with manure, wood ash, bone meal and micronutrients, and wood vinegar substitutes for part of the chemical programme, cutting synthetic input rather than supplementing it.',
+      lede: 'Not smoke you can see, but the highest-leverage stream on the list. The manufacturing emission sits upstream; the N₂O emission comes straight out of the field, and the acidification it causes is what CE² biochar is formulated to reverse.',
+      metrics: [ { v: '~273×', l: 'N₂O vs CO₂ warming' }, { v: '30 t', l: 'Inoculated biochar / mo' }, { v: '4', l: 'Crop formulations' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          '<b>Manufacturing CO₂</b> — synthetic nitrogen is among the most energy-intensive farm inputs there is.',
+          '<b>Nitrous oxide</b> vented from over-fertilised root zones at roughly <b>273×</b> the warming potential of CO₂.',
+          '<b>Acidification</b> that collapses microbial life and locks up nutrients, prompting still heavier application.',
+          'The result is a field that needs more input each year to hold the same yield.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Wood ash alkalinity</b> in the biochar charge directly counters fertilizer-driven acidification.',
+          '<b>Pre-charged porosity</b> — manure, bone meal and micronutrients loaded before the char reaches the field, so it does not scavenge.',
+          '<b>Raised cation exchange capacity</b> keeps applied nutrients in the root zone instead of leaching them away.',
+          '<b>Wood vinegar</b> as an organic bio-stimulant and pest deterrent, reducing synthetic pesticide load alongside it.'
+        ]}
+      ]
+    },
+    {
+      id: 's-deforestation', tag: 'Source 06', title: 'Canopy Loss & Invasive Scrub',
+      sub: 'Deforestation, fuelwood harvesting, Prosopis juliflora',
+      emits: 'Removing standing biomass deletes the fastest natural sink and exposes topsoil to wind and heat erosion — while invasive juliflora colonises the cleared ground and draws down what groundwater is left.',
+      fix: 'Juliflora is a primary CE² feedstock, so clearing it pays for itself; briquettes displace fuelwood harvesting; and the agroforestry programme replants multi-tier native canopy with biochar at the planting pit.',
+      lede: 'Two problems that look opposite and are actually the same one. Useful canopy is being cut for fuel while an invasive scrub takes over the land it left behind. CE² monetises the removal of one and funds the return of the other.',
+      metrics: [ { v: 'Feedstock', l: 'Juliflora becomes input' }, { v: 'Multi-tier', l: 'Replanting structure' }, { v: 'Native', l: 'Species policy' } ],
+      blocks: [
+        { h: 'What it puts into the air', items: [
+          '<b>Stored carbon released</b> when standing biomass is cut and burned.',
+          '<b>Sink capacity deleted</b> — the fastest natural drawdown available at landscape scale.',
+          '<b>Topsoil erosion</b> once shade and litter fall are gone, releasing soil carbon too.',
+          '<b>Invasive spread</b> — <i>Prosopis juliflora</i> occupies the cleared ground and depletes groundwater.'
+        ]},
+        { h: 'What CE² does about it', items: [
+          '<b>Juliflora as feedstock</b> — clearing the invasive is paid for by what it becomes, so the removal actually happens.',
+          '<b>Briquettes displace fuelwood</b>, removing the reason to cut standing trees for the kitchen.',
+          '<b>Multi-tier agroforestry</b> with drought-adapted native species on degraded parcels.',
+          '<b>Long-term canopy care</b> — survival tracked over years, with biochar at the pit and wood vinegar through establishment.'
+        ]}
+      ]
+    }
+  ];
+
   /** The three CE² Future Horizons restoration pathways. */
   var HORIZONS = [
     {
-      id: 'agroforestry', icon: '🌳', tag: 'Horizon 01',
+      id: 'agroforestry', img: 'assets/horizon-agroforestry.svg',
+      imgAlt: 'Multi-tier agroforestry: canopy trees, sub-canopy, shrub layer and ground cover on restored farmland', tag: 'Horizon 01',
       title: 'Agroforestry & Tree Care', sub: 'Multi-tier afforestation',
       short: 'Multi-tier afforestation on degraded agricultural land — native species selection, establishment support and long-term canopy health management rather than one-off planting drives.',
       lede: 'A planted sapling is not a carbon sink; a surviving canopy is. CE² treats afforestation as a maintenance commitment, pairing native multi-tier planting with the biochar and bio-stimulant programme that keeps the trees alive through the dry years.',
@@ -324,7 +462,8 @@
       ]
     },
     {
-      id: 'erw', icon: '⛰️', tag: 'Horizon 02',
+      id: 'erw', img: 'assets/horizon-erw.svg',
+      imgAlt: 'Crushed basalt spread over cropland, drawing carbon dioxide down and locking it as stable bicarbonate', tag: 'Horizon 02',
       title: 'Enhanced Rock Weathering', sub: 'Crushed basalt on cropland',
       short: 'Spreading finely crushed basalt and silicate rock across cropland, permanently trapping atmospheric CO₂ through accelerated chemical weathering while raising soil pH and base saturation.',
       lede: 'ERW takes a reaction the planet already runs over geological time and compresses it into an agricultural season. Crushed silicate on a field dissolves in rainwater and soil acids, converting dissolved CO₂ into stable bicarbonate — a removal measured in millennia.',
@@ -346,7 +485,8 @@
       ]
     },
     {
-      id: 'coastal', icon: '🪸', tag: 'Horizon 03',
+      id: 'coastal', img: 'assets/horizon-coastal.svg',
+      imgAlt: 'Mangrove forest above the waterline and coral reef below, with ocean alkalinity enhancement', tag: 'Horizon 03',
       title: 'Coastal & Coral Restoration', sub: 'Blue carbon systems',
       short: 'Mangrove ecosystem protection, ocean alkalinity enhancement and coral reef restoration along the coastline — the highest-density carbon sinks available and the frontline of coastal protection.',
       lede: 'Blue carbon systems store carbon per hectare at multiples of terrestrial forest, and protect the coastline while doing it. CE² extends the restoration programme from the dry interior to the shore.',
@@ -368,7 +508,7 @@
     }
   ];
 
-  var SETS = { process: PROCESS, product: PRODUCTS, horizon: HORIZONS };
+  var SETS = { source: SOURCES, process: PROCESS, product: PRODUCTS, horizon: HORIZONS };
 
   /* =======================================================================
      2. DOM CONSTRUCTION
@@ -401,6 +541,25 @@
     stepsHost.appendChild(sec);
   });
 
+  /* --- emission source cards --------------------------------------------- */
+  var sourceHost = $('#sourceGrid');
+  SOURCES.forEach(function (src, i) {
+    var card = document.createElement('article');
+    card.className = 'source reveal';
+    card.setAttribute('data-open', 'source');
+    card.setAttribute('data-index', String(i));
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.innerHTML =
+      '<span class="source__no">' + String(i + 1).padStart(2, '0') + ' &middot; Source</span>' +
+      '<h3>' + src.title + '</h3>' +
+      '<p class="source__emits">' + src.emits + '</p>' +
+      '<div class="source__arrow">The CE² response</div>' +
+      '<p class="source__fix">' + src.fix + '</p>' +
+      '<span class="source__more">Open the detail</span>';
+    sourceHost.appendChild(card);
+  });
+
   /* --- product cards ----------------------------------------------------- */
   var productHost = $('#productGrid');
   PRODUCTS.forEach(function (p, i) {
@@ -411,9 +570,9 @@
     card.setAttribute('data-index', String(i));
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
+    card.setAttribute('data-tone', p.tone);
     card.innerHTML =
-      '<div class="product__glow" style="background:radial-gradient(circle,' + p.glow + ',transparent 68%)"></div>' +
-      '<div class="product__swatch" style="background:' + p.swatch + '"></div>' +
+      '<div class="product__swatch" style="background:' + p.swatchColor + '"></div>' +
       '<span class="product__tag">' + p.tag + '</span>' +
       '<h3>' + p.title + '</h3>' +
       '<p>' + p.short + '</p>' +
@@ -450,11 +609,13 @@
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.innerHTML =
-      '<div class="horizon__glow"></div><div class="horizon__icon">' + h.icon + '</div>' +
-      '<p class="eyebrow eyebrow--good">' + h.tag + '</p>' +
-      '<h3>' + h.title + '</h3><p>' + h.short + '</p>' +
-      '<div class="horizon__kpis">' + kpis + '</div>' +
-      '<span class="step__more">Open detail</span>';
+      '<figure class="horizon__figure"><img src="' + h.img + '" alt="' + h.imgAlt + '" width="1200" height="800" loading="lazy" /></figure>' +
+      '<div class="horizon__body">' +
+        '<p class="eyebrow eyebrow--brand">' + h.tag + '</p>' +
+        '<h3>' + h.title + '</h3><p>' + h.short + '</p>' +
+        '<div class="horizon__kpis">' + kpis + '</div>' +
+        '<span class="step__more">Open detail</span>' +
+      '</div>';
     horizonHost.appendChild(card);
   });
 
@@ -470,6 +631,9 @@
     hotspotEl.appendChild(b);
     return b;
   }
+  SOURCES.forEach(function (src, i) {
+    markers.push({ el: buildMarker(src.title, 'S' + (i + 1), 'source', i, 'smoke'), group: 'source', i: i });
+  });
   PROCESS.forEach(function (p, i) {
     markers.push({ el: buildMarker(p.title, String(i + 1).padStart(2, '0'), 'process', i, null), group: 'plant', i: i });
   });
@@ -495,10 +659,11 @@
   var modalState = { set: 'process', index: 0, open: false };
   var lastFocus = null;
 
-  var BADGE = { process: function (i) { return String(i + 1).padStart(2, '0'); },
+  var BADGE = { source:  function (i) { return 'S' + (i + 1); },
+                process: function (i) { return String(i + 1).padStart(2, '0'); },
                 product: function (i) { return 'P' + (i + 1); },
                 horizon: function (i) { return 'H' + (i + 1); } };
-  var MARKER_GROUP = { process: 'plant', product: 'product', horizon: 'horizon' };
+  var MARKER_GROUP = { source: 'source', process: 'plant', product: 'product', horizon: 'horizon' };
 
   function renderModal(setName, index) {
     var data = SETS[setName] || PROCESS;
@@ -661,10 +826,11 @@
 
   var canvas = $('#webgl');
   var scene, camera, renderer, clock;
-  var starField, earthGroup, terrainGroup, plantGroup, productGroup, soilGroup, horizonGroup;
+  var starField, earthGroup, stacksGroup, terrainGroup, plantGroup, productGroup, soilGroup, horizonGroup;
   var globePoints, smogPoints, healPoints, atmosphere, earthCore, earthWire, regionPin;
   var kilns = [], plantRing, plantSpin, plantCore;
-  var processNodes = [], productNodes = [], horizonNodes = [];
+  var sourceNodes = [], processNodes = [], productNodes = [], horizonNodes = [];
+  var stackUnits = [], stackHaze, stackMats;
   var dustPoints, carbonFall, charSpecks, lockGlow, scrub = [];
   var raycaster, pointer, projected, tmpV;
   var running = false;
@@ -675,7 +841,7 @@
   function freshState() {
     return {
       pollution: 0.5, restoration: 0.02,
-      plant: 0, terrain: 0, products: 0, prodLift: 0, soil: 0,
+      stacks: 0, plant: 0, terrain: 0, products: 0, prodLift: 0, soil: 0,
       earthFade: 1, earthScale: 0.95,
       earthPos:  new V3(3.3, -0.9, -1.5),
       camPos:    new V3(0, 0.7, 13.2),
@@ -838,7 +1004,7 @@
     return new THREE.Points(g, m);
   }
 
-  function makeFallField(count, w, span, d, colA, colB, size, speed) {
+  function makeFallField(count, w, span, d, colA, colB, size, speed, flare) {
     var pos = new Float32Array(count * 3), rnd = new Float32Array(count);
     for (var i = 0; i < count; i++) {
       pos[i * 3]     = (Math.random() - 0.5) * w;
@@ -852,7 +1018,7 @@
     var m = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 }, uSize: { value: size }, uScale: { value: viewScale() },
-        uSpan: { value: span }, uSpeed: { value: speed }, uOpacity: { value: 0 },
+        uSpan: { value: span }, uSpeed: { value: speed }, uFlare: { value: flare || 0 }, uOpacity: { value: 0 },
         uA: { value: new THREE.Color(colA) }, uB: { value: new THREE.Color(colB) }
       },
       vertexShader: FALL_VS, fragmentShader: DRIFT_FS,
@@ -921,6 +1087,83 @@
     earthGroup.add(healPoints);
 
     scene.add(earthGroup);
+  }
+
+
+  /* --- the smoke: an industrial foreground in front of the hazed planet -- */
+  function buildStacks() {
+    stacksGroup = new THREE.Group();
+    stacksGroup.position.set(0, -4.3, 0.8);
+    stacksGroup.visible = false;
+
+    /* unlit so they stay silhouettes against the haze however the act is lit */
+    var shell   = new THREE.MeshBasicMaterial({ color: 0x0A0A08 });
+    var shell2  = new THREE.MeshBasicMaterial({ color: 0x14130F });
+    var bandMat = new THREE.MeshBasicMaterial({ color: 0x201D18 });
+
+    /* x, z, chimney height, radius, plume scale — six distinct emitters */
+    var LAYOUT = [
+      [-5.70,  0.4, 2.60, 0.26, 1.15],
+      [-3.55,  1.7, 1.95, 0.21, 0.85],
+      [-1.45, -0.3, 3.15, 0.30, 1.35],
+      [ 0.95,  1.4, 1.75, 0.20, 0.75],
+      [ 3.25,  0.2, 2.45, 0.25, 1.05],
+      [ 5.50,  1.5, 2.05, 0.22, 0.90]
+    ];
+
+    SOURCES.forEach(function (src, i) {
+      var L = LAYOUT[i];
+      var g = new THREE.Group();
+      g.position.set(L[0], 0, L[1]);
+
+      var h = L[2], r = L[3];
+      /* plant house at the base */
+      var house = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.62, 0.9), shell);
+      house.position.y = 0.31;
+      g.add(house);
+      /* chimney */
+      var stack = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.82, r, h, 14), shell2);
+      stack.position.y = 0.5 + h / 2;
+      g.add(stack);
+      var band = new THREE.Mesh(new THREE.TorusGeometry(r * 0.86, 0.022, 6, 20), bandMat);
+      band.rotation.x = Math.PI / 2;
+      band.position.y = 0.5 + h - 0.18;
+      g.add(band);
+      /* a hot mouth so the emitter reads as running */
+      var mouth = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.72, r * 0.72, 0.05, 14), glowMat(0xD97B4F, 0.5));
+      mouth.position.y = 0.5 + h + 0.03;
+      g.add(mouth);
+
+      /* the plume itself */
+      var plume = makeFallField(IS_SMALL ? 340 : 900, r * 1.7, 4.6, r * 1.7,
+                                0xC8BCAA, 0x6A6157, 0.21, -0.5, 1.7 * L[4]);
+      plume.position.y = 0.5 + h + 2.4;
+      g.add(plume);
+
+      /* interactive node beside the mouth */
+      var n = new THREE.Group();
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.10, 1), glowMat(0xE8A07E, 0.75));
+      var halo = new THREE.Mesh(new THREE.SphereGeometry(0.26, 16, 16), glowMat(0xD97B4F, 0.14));
+      var ring = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.007, 8, 34), glowMat(0xE8A07E, 0.7));
+      ring.rotation.x = Math.PI / 2;
+      n.add(core, halo, ring);
+      n.position.set(0, 0.5 + h + 0.65, 0);
+      n.userData = { kind: 'source', index: i, core: core, halo: halo, ring: ring, phase: i * 1.4 };
+      core.userData.hot = n; halo.userData.hot = n;
+      g.add(n);
+
+      g.userData = { plume: plume, mouth: mouth, phase: i * 0.7 };
+      stacksGroup.add(g);
+      stackUnits.push(g);
+      sourceNodes.push(n);
+    });
+
+    /* ground haze pooling around the bases */
+    stackHaze = makeFallField(IS_SMALL ? 300 : 700, 17, 4.0, 4.5, 0x9a9184, 0x3b372f, 0.20, -0.12, 0.3);
+    stackHaze.position.y = 1.1;
+    stacksGroup.add(stackHaze);
+
+    scene.add(stacksGroup);
   }
 
   /* --- the land: Anantapur at ground level ------------------------------- */
@@ -1357,6 +1600,7 @@
 
     buildStars();
     buildEarth();
+    buildStacks();
     buildTerrain();
     buildPlant();
     buildProducts();
@@ -1392,96 +1636,110 @@
   /* =======================================================================
      6. THE JOURNEY — camera stations anchored to DOM elements
      ===================================================================== */
+  /* Each station is a camera + scene pose anchored to a DOM element.
+     `light: true` marks a cream editorial band — the section there is opaque,
+     so the canvas is hidden and the pose only needs to be a sane continuation. */
+  var CREAM = 0xF7F5EF;
   var STATIONS = [
     { sel: '#hero', dot: 0,
-      cam: [0, 0.7, 13.2], tgt: [0.5, 0.1, 0], bg: 0x050a07,
-      poll: 0.50, rest: 0.02, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      cam: [0, 0.7, 13.2], tgt: [0.5, 0.1, 0], bg: 0x0B2318,
+      poll: 0.45, rest: 0.02, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [3.3, -0.9, -1.5], earthScale: 0.95 },
 
+    { sel: '.hero__actions', dot: 0, anchor: 'bottom',
+      cam: [0.6, 0.5, 12.4], tgt: [0.5, 0.05, 0], bg: 0x0B2318,
+      poll: 0.55, rest: 0.02, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      earthPos: [3.6, -0.7, -1.5], earthScale: 0.98 },
+
+    /* Act I — the smoke: an industrial foreground under a hazed planet */
     { sel: '#problem', dot: 1,
-      cam: [2.2, 1.0, 10.5], tgt: [0.3, 0.05, 0], bg: 0x140b06,
-      poll: 1.00, rest: 0.00, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      cam: [2.2, 1.0, 10.5], tgt: [0.3, 0.05, 0], bg: 0x1A1208,
+      poll: 1.00, rest: 0.00, earthFade: 1, stacks: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [4.5, 0.2, -1.0], earthScale: 1.05 },
 
     { sel: '#problem .panel', dot: 1, anchor: 'bottom',
-      cam: [2.6, 0.6, 9.4], tgt: [0.3, 0.0, 0], bg: 0x160c06,
-      poll: 1.00, rest: 0.00, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      cam: [1.4, 0.5, 9.8], tgt: [0.3, -0.55, 0], bg: 0x1A1208,
+      poll: 1.00, rest: 0.00, earthFade: 1, stacks: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [4.5, 0.2, -1.0], earthScale: 1.05 },
 
-    /* falling out of orbit toward the district */
+    { sel: '#sources', dot: 1, light: true,
+      cam: [1.4, 0.6, 10.0], tgt: [0.4, 0.0, 0], bg: CREAM,
+      poll: 0.80, rest: 0.05, earthFade: 1, stacks: 0.6, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      earthPos: [4.0, 0.2, -1.0], earthScale: 1.0 },
+
+    /* the dive */
     { sel: '.dive-lead', dot: 2,
-      cam: [1.4, -14, 9.5], tgt: [0.7, -20, 0], bg: 0x1a1108,
-      poll: 0.70, rest: 0.05, earthFade: 0.30, terrain: 0.35, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      cam: [1.4, -2.0, 11.0], tgt: [0.6, -6.0, 0], bg: 0x241606,
+      poll: 0.60, rest: 0.08, earthFade: 0.6, stacks: 0, terrain: 0.25, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [1.0, 0, -1.0], earthScale: 1.0 },
 
-    /* on the ground in Anantapur */
-    { sel: '.panel--land', dot: 2,
-      cam: [0, GROUND + 2.6, 12.5], tgt: [0.8, GROUND + 0.8, 0], bg: 0x241606,
-      poll: 0.45, rest: 0.12, earthFade: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 0,
+    { sel: '.land-reveal', dot: 2,
+      cam: [0.6, GROUND + 2.4, 11.5], tgt: [0.8, GROUND + 0.7, 0], bg: 0x2A1B08,
+      poll: 0.42, rest: 0.14, earthFade: 0, stacks: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    { sel: '.panel--land', dot: 2, anchor: 'bottom',
-      cam: [0.6, GROUND + 2.2, 11.0], tgt: [0.8, GROUND + 0.7, 0], bg: 0x241606,
-      poll: 0.40, rest: 0.15, earthFade: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 0,
+    { sel: '#land', dot: 2, light: true,
+      cam: [0.2, GROUND + 2.2, 11.0], tgt: [0.6, GROUND + 0.7, 0], bg: CREAM,
+      poll: 0.36, rest: 0.20, earthFade: 0, stacks: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    /* the pyrolysis unit, standing on that ground */
+    /* Act II — the unit standing on that ground */
     { sel: '#solution', dot: 3,
-      cam: [0.4, PY + 1.3, 11.8], tgt: [0.2, PY - 0.30, 0], bg: 0x0d1a10,
-      poll: 0.30, rest: 0.30, earthFade: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
+      cam: [0.4, PY + 1.3, 11.8], tgt: [0.2, PY - 0.30, 0], bg: 0x0B2318,
+      poll: 0.28, rest: 0.32, earthFade: 0, stacks: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     { sel: '.step:last-child', dot: 3, anchor: 'bottom',
-      cam: [-0.4, PY + 1.0, 11.2], tgt: [0.2, PY - 0.30, 0], bg: 0x0d1a10,
-      poll: 0.22, rest: 0.40, earthFade: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
+      cam: [-0.4, PY + 1.0, 11.2], tgt: [0.2, PY - 0.30, 0], bg: 0x0B2318,
+      poll: 0.20, rest: 0.42, earthFade: 0, stacks: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    /* the product line */
+    /* Act III — the product line */
     { sel: '#products', dot: 4,
-      cam: [0, GROUND + 4.4, 9.6], tgt: [0, GROUND - 0.1, 0], bg: 0x0e1a12,
-      poll: 0.12, rest: 0.55, earthFade: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 0, soil: 0,
+      cam: [0, GROUND + 4.4, 9.6], tgt: [0, GROUND - 0.1, 0], bg: 0x0E2A1C,
+      poll: 0.12, rest: 0.55, earthFade: 0, stacks: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     { sel: '.product-reveal', dot: 4,
-      cam: [0, GROUND + 4.0, 8.4], tgt: [0, GROUND - 0.35, 0], bg: 0x0e1a12,
-      poll: 0.11, rest: 0.57, earthFade: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 0, soil: 0,
+      cam: [0, GROUND + 4.0, 8.4], tgt: [0, GROUND - 0.35, 0], bg: 0x0E2A1C,
+      poll: 0.11, rest: 0.57, earthFade: 0, stacks: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    { sel: '#productGrid', dot: 4,
-      cam: [0, GROUND + 5.6, 10.8], tgt: [0, GROUND + 2.1, 0], bg: 0x0e1a12,
-      poll: 0.10, rest: 0.60, earthFade: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 1, soil: 0,
+    { sel: '#productLines', dot: 4, light: true,
+      cam: [0, GROUND + 5.4, 10.6], tgt: [0, GROUND + 2.0, 0], bg: CREAM,
+      poll: 0.09, rest: 0.62, earthFade: 0, stacks: 0, terrain: 0.7, plant: 0, prod: 1, prodLift: 1, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    { sel: '#productsEnd', dot: 4, anchor: 'bottom',
-      cam: [0.9, GROUND + 5.4, 10.4], tgt: [0, GROUND + 2.0, 0], bg: 0x0e1a12,
-      poll: 0.10, rest: 0.62, earthFade: 0, terrain: 0.85, plant: 0, prod: 1, prodLift: 1, soil: 0,
-      earthPos: [0, 0, 0], earthScale: 1.0 },
-
-    /* below the surface */
+    /* Act IV — below the surface */
     { sel: '#restoration', dot: 5,
-      cam: [0, UNDER + 3.2, 16.4], tgt: [0.4, UNDER + 0.3, 0], bg: 0x120b06,
-      poll: 0.04, rest: 0.75, earthFade: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
+      cam: [0, UNDER + 3.2, 16.4], tgt: [0.4, UNDER + 0.3, 0], bg: 0x140C06,
+      poll: 0.04, rest: 0.75, earthFade: 0, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     { sel: '#restorationEnd', dot: 5, anchor: 'bottom',
-      cam: [0, UNDER + 2.4, 15.0], tgt: [0.4, UNDER - 0.1, 0], bg: 0x120b06,
-      poll: 0.02, rest: 0.85, earthFade: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
+      cam: [0, UNDER + 2.4, 15.0], tgt: [0.4, UNDER - 0.1, 0], bg: 0x140C06,
+      poll: 0.02, rest: 0.85, earthFade: 0, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    /* back out to orbit, restored */
+    /* Act V — back out to orbit, restored */
     { sel: '#horizons', dot: 6,
-      cam: [0.2, 0.9, 11.6], tgt: [0, 0, 0], bg: 0x04120b,
-      poll: 0.03, rest: 1.00, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      cam: [0.2, 0.9, 11.6], tgt: [0, 0, 0], bg: 0x0B2318,
+      poll: 0.03, rest: 1.00, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
-    { sel: '#horizonGrid', dot: 6,
-      cam: [0, 0.6, 12.0], tgt: [0, 0.2, 0], bg: 0x04120b,
-      poll: 0.02, rest: 1.00, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
-      earthPos: [0, 2.6, -2.0], earthScale: 0.62 },
+    { sel: '.horizon-reveal', dot: 6,
+      cam: [0, 0.6, 12.0], tgt: [0, 0.2, 0], bg: 0x0B2318,
+      poll: 0.02, rest: 1.00, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      earthPos: [0, 1.4, -1.4], earthScale: 0.78 },
 
-    { sel: '#contact', dot: 7,
-      cam: [0, 3.0, 15.5], tgt: [0, -0.7, 0], bg: 0x050d08,
-      poll: 0.00, rest: 1.00, earthFade: 1, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+    { sel: '#horizonCards', dot: 6, light: true,
+      cam: [0, 0.6, 12.6], tgt: [0, 0.4, 0], bg: CREAM,
+      poll: 0.01, rest: 1.00, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
+      earthPos: [0, 2.8, -2.2], earthScale: 0.6 },
+
+    { sel: '#contact', dot: 7, light: true,
+      cam: [0, 3.0, 15.5], tgt: [0, -0.7, 0], bg: CREAM,
+      poll: 0.00, rest: 1.00, earthFade: 1, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, -1.1, 0], earthScale: 0.92 }
   ];
 
@@ -1508,8 +1766,8 @@
     }
   }
 
-  var NUM = ['poll', 'rest', 'earthFade', 'terrain', 'plant', 'prod', 'prodLift', 'soil', 'earthScale'];
-  var KEY = { poll: 'pollution', rest: 'restoration', earthFade: 'earthFade',
+  var NUM = ['poll', 'rest', 'earthFade', 'stacks', 'terrain', 'plant', 'prod', 'prodLift', 'soil', 'earthScale'];
+  var KEY = { poll: 'pollution', rest: 'restoration', earthFade: 'earthFade', stacks: 'stacks',
               terrain: 'terrain', plant: 'plant', prod: 'products', prodLift: 'prodLift',
               soil: 'soil', earthScale: 'earthScale' };
 
@@ -1551,7 +1809,7 @@
   var railFill   = $('#railFill');
   var railDots   = $$('.rail__dots li');
   var navAnchors = $$('.nav__links a[data-jump]');
-  var DOT_ACTS   = ['hero', 'problem', 'anantapur', 'solution', 'products', 'restoration', 'horizons', 'contact'];
+  var DOT_ACTS   = ['hero', 'sources', 'land', 'solution', 'productLines', 'restoration', 'horizonCards', 'contact'];
 
   function updateChrome() {
     nav.classList.toggle('is-stuck', window.scrollY > 40);
@@ -1559,6 +1817,8 @@
 
     var si = clamp(journey.local > 0.55 ? journey.index + 1 : journey.index, 0, STATIONS.length - 1);
     var dot = STATIONS[si].dot;
+    /* the rail sits over whichever band it is currently in */
+    document.body.classList.toggle('on-dark', !STATIONS[si].light);
     railDots.forEach(function (li, i) { li.classList.toggle('is-on', i === dot); });
     var actName = DOT_ACTS[dot];
     navAnchors.forEach(function (a) { a.classList.toggle('is-current', a.getAttribute('data-jump') === actName); });
@@ -1570,7 +1830,7 @@
   var occluders = [];
   function refreshOccluders() {
     if (window.innerWidth <= 780) { occluders = []; return; }
-    occluders = $$('.step__card, .panel, .horizon, .product, .flow__card').reduce(function (acc, el) {
+    occluders = $$('.step__card, .panel, .horizon, .product, .source, .flow__card, .band-head').reduce(function (acc, el) {
       var r = el.getBoundingClientRect();
       if (r.bottom > -40 && r.top < window.innerHeight + 40 && r.width > 0) {
         acc.push({ l: r.left - 10, r: r.right + 10, t: r.top - 10, b: r.bottom + 10 });
@@ -1587,11 +1847,18 @@
   }
 
   function groupLive(g) {
+    if (g === 'source')  return state.stacks > 0.55;
     if (g === 'plant')   return state.plant > 0.55;
     if (g === 'product') return state.products > 0.55;
-    return state.restoration > 0.62 && state.plant < 0.25 && state.products < 0.25 && state.soil < 0.25;
+    return state.restoration > 0.62 && state.stacks < 0.2 &&
+           state.plant < 0.25 && state.products < 0.25 && state.soil < 0.25;
   }
-  function nodesFor(g) { return g === 'plant' ? processNodes : (g === 'product' ? productNodes : horizonNodes); }
+  function nodesFor(g) {
+    if (g === 'source')  return sourceNodes;
+    if (g === 'plant')   return processNodes;
+    if (g === 'product') return productNodes;
+    return horizonNodes;
+  }
 
   function updateMarkers() {
     if (!running || window.innerWidth <= 780) return;
@@ -1614,15 +1881,16 @@
      8. RAYCAST INTERACTION
      ===================================================================== */
   var hovered = null;
-  var UI_SELECTOR = '.panel, .step__card, .horizon, .product, .flow__card, .nav, .modal__card, .hs, .rail, ' +
-                    '.foot__cards, .foot__lead, .outcome, .scroll-hint, .dive-lead, .horizon-reveal, a, button, [data-open]';
+  var UI_SELECTOR = '.panel, .step__card, .horizon, .product, .source, .flow__card, .site-header, .modal__card, ' +
+                    '.hs, .rail, .act--light, .foot__cards, .foot__lead, .outcome, .scroll-hint, ' +
+                    '.dive-lead, .land-reveal, .product-reveal, .horizon-reveal, a, button, [data-open]';
 
   function pickNode(clientX, clientY) {
     pointer.x = (clientX / window.innerWidth) * 2 - 1;
     pointer.y = -(clientY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     var pool = [];
-    ['plant', 'product', 'horizon'].forEach(function (g) {
+    ['source', 'plant', 'product', 'horizon'].forEach(function (g) {
       if (groupLive(g)) nodesFor(g).forEach(function (n) { pool.push(n.userData.core, n.userData.halo); });
     });
     if (!pool.length) return null;
@@ -1668,7 +1936,7 @@
     var t  = clock.elapsedTime;
 
     /* damped state */
-    ['pollution', 'restoration', 'plant', 'terrain', 'products', 'prodLift', 'soil', 'earthFade', 'earthScale']
+    ['pollution', 'restoration', 'stacks', 'plant', 'terrain', 'products', 'prodLift', 'soil', 'earthFade', 'earthScale']
       .forEach(function (k) { state[k] = damp(state[k], target[k], 3.4, dt); });
     ['x', 'y', 'z'].forEach(function (ax) {
       state.earthPos[ax] = damp(state.earthPos[ax], target.earthPos[ax], 3.4, dt);
@@ -1693,7 +1961,7 @@
     bgColor.setRGB(state.bg.x, state.bg.y, state.bg.z);
     renderer.setClearColor(bgColor, 1);
     scene.fog.color.copy(bgColor);
-    scene.fog.density = 0.014 + state.terrain * 0.030 + state.soil * 0.004;
+    scene.fog.density = 0.014 + state.stacks * 0.010 + state.terrain * 0.030 + state.soil * 0.004;
 
     /* ---------------- planet ---------------- */
     var ef = state.earthFade;
@@ -1726,12 +1994,36 @@
       healPoints.material.uniforms.uOpacity.value = state.restoration * 0.55 * ef;
       healPoints.material.uniforms.uSpread.value = 0.25 + state.restoration * 0.7;
     }
-    scene.userData.emberLight.intensity = 0.4 + state.pollution * 2.2 * Math.max(ef, state.terrain);
+    scene.userData.emberLight.intensity = 0.4 + state.pollution * 2.2 * Math.max(ef, Math.max(state.terrain, state.stacks));
     scene.userData.lifeLight.intensity  = state.restoration * 2.4;
     scene.userData.sunLight.intensity   = Math.max(state.terrain, state.products) * 0.8;
     /* below ground it should read as a lit cut face, not a sunlit wall */
     scene.userData.key.intensity     = 1.1 - state.soil * 0.88;
     scene.userData.ambient.intensity = 0.55 - state.soil * 0.30;
+
+    /* ---------------- the smoke ---------------- */
+    /* held back until well into the transition so they never haunt the hero */
+    var stackIn = clamp((state.stacks - 0.30) / 0.55, 0, 1);
+    stacksGroup.visible = stackIn > 0.012;
+    if (stacksGroup.visible) {
+      setSolids(stackMats, stackIn);
+      stackHaze.material.uniforms.uTime.value = t;
+      stackHaze.material.uniforms.uOpacity.value = stackIn * 0.26;
+      stackUnits.forEach(function (u, i) {
+        var pulse = 0.6 + Math.abs(Math.sin(t * 0.7 + u.userData.phase)) * 0.4;
+        u.userData.plume.material.uniforms.uTime.value = t;
+        u.userData.plume.material.uniforms.uOpacity.value = stackIn * (0.34 + pulse * 0.26);
+        u.userData.mouth.material.opacity = stackIn * (0.22 + pulse * 0.30);
+        var n = sourceNodes[i], live = hovered === n;
+        var np = 0.85 + Math.sin(t * 2.1 + n.userData.phase) * 0.15;
+        n.scale.setScalar(damp(n.scale.x, (live ? 1.7 : 1.0) * np, 6, dt));
+        n.userData.core.rotation.y += dt * 0.9;
+        n.userData.ring.rotation.z += dt * (live ? 1.5 : 0.6);
+        n.userData.core.material.opacity = 0.75 * stackIn;
+        n.userData.halo.material.opacity = (live ? 0.30 : 0.14) * stackIn;
+        n.userData.ring.material.opacity = (live ? 0.9 : 0.6) * stackIn;
+      });
+    }
 
     /* ---------------- the land ---------------- */
     terrainGroup.visible = state.terrain > 0.012;
@@ -1838,7 +2130,7 @@
     /* ---------------- stars ---------------- */
     starField.rotation.y += dt * 0.006;
     starField.material.uniforms.uMix.value = 0.35 + state.restoration * 0.4;
-    starField.material.uniforms.uOpacity.value = 0.85 * clamp(1 - Math.max(state.terrain, state.soil) * 1.3, 0, 1);
+    starField.material.uniforms.uOpacity.value = 0.85 * clamp(1 - Math.max(state.stacks * 0.8, Math.max(state.terrain, state.soil)) * 1.3, 0, 1);
 
     updateMarkers();
     renderer.render(scene, camera);
@@ -1902,7 +2194,7 @@
      11. BOOT
      ===================================================================== */
   var LOAD_MSGS = [
-    'Warming the soil', 'Seeding the atmosphere', 'Charging six pyrolysis kilns',
+    'Warming the soil', 'Counting the smoke', 'Charging six pyrolysis kilns',
     'Pressing the first briquettes', 'Opening the carbon registry'
   ];
 
@@ -1921,10 +2213,11 @@
     if (ok) {
       try {
         initThree();
+        stackMats   = collectSolids(stacksGroup);
         terrainMats = collectSolids(terrainGroup);
         productMats = collectSolids(productGroup);
         soilMats    = collectSolids(soilGroup);
-        setSolids(terrainMats, 0); setSolids(productMats, 0); setSolids(soilMats, 0);
+        setSolids(stackMats, 0); setSolids(terrainMats, 0); setSolids(productMats, 0); setSolids(soilMats, 0);
       } catch (err) {
         console.error('[CE2] WebGL init failed:', err);
         ok = false; running = false;
@@ -1961,7 +2254,7 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(onResize, 120); });
 
   window.CE2 = {
-    PROCESS: PROCESS, PRODUCTS: PRODUCTS, RESTORATION: RESTORATION, HORIZONS: HORIZONS,
+    SOURCES: SOURCES, PROCESS: PROCESS, PRODUCTS: PRODUCTS, RESTORATION: RESTORATION, HORIZONS: HORIZONS,
     state: state, target: target, journey: journey, stations: STATIONS,
     openModal: openModal, closeModal: closeModal
   };
