@@ -3,28 +3,57 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#05070a" />
-<title>CE² — Carbon Earth Environment Pvt. Ltd.</title>
-<meta name="description" content="CE² (Carbon Earth Environment Private Limited) — integrated biomass pyrolysis, crop-specific biochar, smokeless briquettes and durable carbon removal from Anantapur, Andhra Pradesh." />
+<meta name="theme-color" content="#050a07" />
+<title>CE² — Carbon · Earth · Environment</title>
+<meta name="description" content="CE² (Carbon Earth Environment Private Limited) — integrated biomass pyrolysis in Anantapur, Andhra Pradesh. Crop-specific biochar, smokeless briquettes, wood vinegar and registry-verified durable carbon removal." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='52' r='38' fill='none' stroke='%230E7C46' stroke-width='13'/><path d='M62 30 q10 -12 22 -14 q-4 16 -16 22z' fill='%2317A05C'/></svg>" />
 </head>
 <body>
+
+<!-- =====================================================================
+     BRAND MARK
+     Reconstructed as vector so it scales and inherits colour. To use the
+     official artwork instead, drop it in beside these files and swap the
+     <use> references for <img src="logo.svg">.
+     ===================================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ce2-mark" viewBox="0 0 200 200">
+    <!-- globe ring, broken at the upper right where the sprout grows out -->
+    <path d="M141.5 41.5 A72 72 0 1 0 171 84"
+          fill="none" stroke="currentColor" stroke-width="21" stroke-linecap="round" />
+    <!-- landmasses -->
+    <path d="M48 84c0-13 10-24 23-22 9 1 11 8 19 9 10 1 17-6 22 0 5 6-4 15-13 18-8 3-9 10-18 11-13 2-24-4-29-11-2-2-4-3-4-5z"
+          fill="currentColor"/>
+    <path d="M86 108c11-5 24-1 28 10 4 11-2 22-9 32-6 8-14 11-18 5-4-6-2-18-2-29 0-9-3-15 1-18z"
+          fill="currentColor"/>
+    <path d="M124 100c10-5 22 0 24 10 2 10-6 19-15 21-9 2-15-5-15-14 0-9-1-14 6-17z"
+          fill="currentColor"/>
+    <!-- sprout: stem, frond and veins -->
+    <path d="M110 108c2-20 12-37 30-51"
+          fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+    <path d="M133 70c6-20 21-36 44-42 5 22 0 42-15 55-11 10-24 11-30 4-4-5-2-11 1-17z"
+          fill="currentColor"/>
+    <g fill="none" stroke="#ffffff" stroke-linecap="round" opacity=".72">
+      <path d="M174 32 137 72" stroke-width="4.4"/>
+      <path d="M166 40l7 13M158 49l7 13M150 58l7 12" stroke-width="3.4"/>
+    </g>
+  </symbol>
+</svg>
 
 <!-- ============================ LOADING SCREEN ============================ -->
 <div id="loader" class="loader">
   <div class="loader__inner">
-    <div class="loader__mark">
-      <span class="loader__ce">CE</span><span class="loader__sq">2</span>
-    </div>
-    <div class="loader__title">Carbon Earth Environment</div>
+    <svg class="loader__logo" viewBox="0 0 200 200" aria-hidden="true"><use href="#ce2-mark"/></svg>
+    <div class="loader__mark"><span class="loader__ce">CE</span><span class="loader__sq">2</span></div>
+    <div class="loader__title">Carbon &middot; Earth &middot; Environment</div>
     <div class="loader__bar"><i id="loaderFill"></i></div>
     <div class="loader__meta">
-      <span id="loaderMsg">Initialising carbon engine</span>
+      <span id="loaderMsg">Warming the soil</span>
       <span id="loaderPct">0%</span>
     </div>
   </div>
@@ -35,24 +64,30 @@
   <canvas id="webgl"></canvas>
   <div id="fallback" class="fallback" hidden>
     <div class="fallback__orb"></div>
-    <p>Your browser could not start WebGL — the story below still works in full.</p>
+    <p>Your browser could not start WebGL — the full story below still works.</p>
   </div>
   <div class="stage__vignette"></div>
   <div class="stage__grain"></div>
 </div>
 
-<!-- HTML hotspot markers projected from 3D space (injected by script.js) -->
+<!-- projected 3D hotspot markers (injected by script.js) -->
 <div id="hotspots" class="hotspots"></div>
 
 <!-- ============================ NAVIGATION ============================ -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#hero">
-    <span class="nav__logo">CE<sup>2</sup></span>
-    <span class="nav__name">Carbon Earth Environment<small>Private Limited</small></span>
+  <a class="nav__brand" href="#hero" data-jump="hero">
+    <svg class="nav__logo" viewBox="0 0 200 200" aria-hidden="true"><use href="#ce2-mark"/></svg>
+    <span class="nav__word">
+      <b>CE<sup>2</sup></b>
+      <small>Carbon &middot; Earth &middot; Environment</small>
+    </span>
   </a>
   <nav class="nav__links">
-    <a href="#problem" data-jump="problem">The Problem</a>
-    <a href="#solution" data-jump="solution">The Solution</a>
+    <a href="#problem" data-jump="problem">Problem</a>
+    <a href="#anantapur" data-jump="anantapur">The Land</a>
+    <a href="#solution" data-jump="solution">Process</a>
+    <a href="#products" data-jump="products">Products</a>
+    <a href="#restoration" data-jump="restoration">Carbon</a>
     <a href="#horizons" data-jump="horizons">Horizons</a>
     <a href="#contact" data-jump="contact" class="nav__cta">Connect</a>
   </nav>
@@ -65,11 +100,14 @@
 <aside class="rail" id="rail" aria-hidden="true">
   <div class="rail__line"><i id="railFill"></i></div>
   <ul class="rail__dots">
-    <li data-act="hero"><b></b><em>Origin</em></li>
-    <li data-act="problem"><b></b><em>The Problem</em></li>
-    <li data-act="solution"><b></b><em>The Solution</em></li>
-    <li data-act="horizons"><b></b><em>Horizons</em></li>
-    <li data-act="contact"><b></b><em>Connect</em></li>
+    <li><b></b><em>Origin</em></li>
+    <li><b></b><em>The Problem</em></li>
+    <li><b></b><em>The Land</em></li>
+    <li><b></b><em>The Process</em></li>
+    <li><b></b><em>Products</em></li>
+    <li><b></b><em>Carbon Restored</em></li>
+    <li><b></b><em>Horizons</em></li>
+    <li><b></b><em>Connect</em></li>
   </ul>
 </aside>
 
@@ -78,15 +116,23 @@
   <!-- ======================= ACT 0 — HERO ======================= -->
   <section class="act" id="hero" data-act="hero">
     <div class="wrap hero__wrap">
-      <p class="eyebrow reveal">Anantapur · Andhra Pradesh · India</p>
+      <div class="hero__brand reveal">
+        <svg class="hero__logo" viewBox="0 0 200 200" aria-hidden="true"><use href="#ce2-mark"/></svg>
+        <div>
+          <b>CE<sup>2</sup></b>
+          <span>Carbon &middot; Earth &middot; Environment</span>
+        </div>
+      </div>
+      <p class="eyebrow reveal">Anantapur &amp; Sri Sathya Sai &middot; Andhra Pradesh &middot; India</p>
       <h1 class="hero__title reveal">
         We turn the residue<br /> nobody wants into<br />
         <span class="grad">carbon the earth keeps.</span>
       </h1>
       <p class="hero__lede reveal">
-        CE² — <strong>Carbon Earth Environment Private Limited</strong> — operates an integrated biomass
-        pyrolysis platform that converts invasive and agricultural waste into crop-specific biochar,
-        smokeless fuel and registry-verified durable carbon removal.
+        <strong>Carbon Earth Environment Private Limited</strong> runs an integrated biomass pyrolysis
+        platform that converts invasive scrub and crop residue into crop-specific biochar, smokeless
+        fuel, organic bio-stimulants and registry-verified durable carbon removal — and puts the
+        carbon back where it belongs: in the ground.
       </p>
       <div class="hero__stats reveal">
         <div class="stat"><b data-count="378">0</b><span>t / month feedstock</span></div>
@@ -95,50 +141,57 @@
         <div class="stat"><b data-count="140">0</b><span>tCO₂e / month removed</span></div>
       </div>
       <div class="hero__actions reveal">
-        <a class="btn btn--primary" href="#solution" data-jump="solution">Explore the plant</a>
-        <a class="btn btn--ghost" href="#problem" data-jump="problem">Why it matters</a>
+        <a class="btn btn--primary" href="#products" data-jump="products">See the products</a>
+        <a class="btn btn--ghost" href="#restoration" data-jump="restoration">How carbon is restored</a>
       </div>
     </div>
-    <div class="scroll-hint"><span></span>Scroll to begin the journey</div>
+    <div class="scroll-hint"><span></span>Scroll to descend</div>
   </section>
 
   <!-- ======================= ACT 1 — THE PROBLEM ======================= -->
   <section class="act act--tall" id="problem" data-act="problem">
     <div class="wrap">
       <div class="panel panel--danger reveal">
-        <p class="eyebrow eyebrow--danger">Act I — The Global Problem</p>
+        <p class="eyebrow eyebrow--danger">Act I &middot; From orbit</p>
         <h2>An atmosphere carrying more than it can hold.</h2>
         <p class="lede">
-          Every year the planet absorbs carbon faster than it can lock it away. Heavy industry,
-          deep borewell extraction, fossil-fuel combustion, synthetic nitrogen fertilizers and
-          deforestation each push a stream of CO₂ into a shell that was never designed to store it —
-          while the soils that should be sinking that carbon are stripped of the organic matter
-          that lets them hold it.
+          The planet is absorbing carbon faster than it can lock away. Heavy industry, deep borewell
+          extraction, fossil-fuel combustion, synthetic nitrogen fertilizers and deforestation each
+          push a stream of CO₂ into a thin shell that was never built to store it — while the soils
+          that should be sinking that carbon are stripped of the organic matter that lets them hold it.
         </p>
         <ul class="drivers">
           <li><span class="dot"></span><b>Industrial &amp; thermal combustion</b><em>Continuous point-source CO₂, SO<sub>x</sub> and particulate loading over semi-arid districts.</em></li>
           <li><span class="dot"></span><b>Deep borewell extraction</b><em>Falling water tables force deeper bores, higher energy draw and rising salt concentration in irrigation water.</em></li>
           <li><span class="dot"></span><b>Chemical fertilizer dependence</b><em>Urea-heavy regimes acidify the root zone, collapse microbial life and vent N₂O — ~273× the warming potential of CO₂.</em></li>
-          <li><span class="dot"></span><b>Deforestation &amp; canopy loss</b><em>Removal of standing biomass deletes the fastest natural sink and exposes topsoil to wind and heat erosion.</em></li>
-          <li><span class="dot"></span><b>Open residue burning</b><em>Post-harvest stubble and prunings burned in the open release stored carbon in hours instead of banking it for centuries.</em></li>
+          <li><span class="dot"></span><b>Deforestation &amp; canopy loss</b><em>Removing standing biomass deletes the fastest natural sink and exposes topsoil to wind and heat erosion.</em></li>
+          <li><span class="dot"></span><b>Open residue burning</b><em>Stubble and prunings burned in the open release stored carbon in hours instead of banking it for centuries.</em></li>
         </ul>
       </div>
     </div>
+  </section>
+
+  <!-- ======================= INTERLUDE — THE DIVE ======================= -->
+  <section class="act act--dive" id="anantapur" data-act="anantapur">
+    <div class="dive-lead reveal">
+      <p class="eyebrow eyebrow--sand">Descending &middot; 14.68° N, 77.60° E</p>
+      <h2>So we went down<br />to where it actually happens.</h2>
+    </div>
 
     <div class="wrap">
-      <div class="panel panel--case reveal">
-        <p class="eyebrow eyebrow--danger">Regional case study</p>
-        <h3>Anantapur &amp; Sri Sathya Sai, Andhra Pradesh</h3>
+      <div class="panel panel--land reveal">
+        <p class="eyebrow eyebrow--sand">The land &middot; Anantapur &amp; Sri Sathya Sai</p>
+        <h3>India's second-driest districts, and the reason CE² exists.</h3>
         <p>
-          CE² was founded inside the crisis it is built to solve. These two districts sit in India's
-          second-driest rain shadow — an agricultural economy running on a rainfall budget that no
-          longer arrives, on soils that are simultaneously going saline and going acidic.
+          CE² was founded inside the crisis it is built to solve. These two districts sit in a deep
+          rain shadow — an agricultural economy running on a rainfall budget that no longer arrives,
+          on soils going saline and acidic at the same time.
         </p>
         <div class="case-grid">
           <div class="case"><b>522<small>mm</small></b><span>Average annual rainfall — a fraction of what the cropping pattern assumes.</span></div>
-          <div class="case"><b>2×<small>stress</small></b><span>Soil degradation on both fronts: salinity from borewell irrigation, acidification from chemical inputs.</span></div>
-          <div class="case"><b>365<small>days</small></b><span>Near-continuous agricultural residue burning — groundnut shells, cotton stems, orchard prunings.</span></div>
-          <div class="case"><b>∞<small>spread</small></b><span>Invasive <i>Prosopis juliflora</i> colonising fallow and grazing land, drawing down what little groundwater remains.</span></div>
+          <div class="case"><b>2×<small>stress</small></b><span>Degradation on both fronts: salinity from borewell irrigation, acidification from chemical inputs.</span></div>
+          <div class="case"><b>365<small>days</small></b><span>Near-continuous residue burning — groundnut shells, cotton stems, orchard prunings.</span></div>
+          <div class="case"><b>∞<small>spread</small></b><span>Invasive <i>Prosopis juliflora</i> colonising fallow land and drawing down what groundwater remains.</span></div>
         </div>
         <p class="note">
           <b>The compounding loop:</b> less rain → deeper borewells → saltier irrigation → weaker soil
@@ -149,17 +202,16 @@
     </div>
   </section>
 
-  <!-- ======================= ACT 2 — THE SOLUTION ======================= -->
+  <!-- ======================= ACT 2 — THE PROCESS ======================= -->
   <section class="act act--steps" id="solution" data-act="solution">
-
     <div class="wrap">
       <div class="panel panel--intro reveal">
-        <p class="eyebrow">Act II — The CE² Integrated Solution</p>
-        <h2>One closed loop. Six revenue-bearing outputs.</h2>
+        <p class="eyebrow">Act II &middot; On the ground</p>
+        <h2>One closed loop. Nothing leaves as waste.</h2>
         <p class="lede">
-          The CE² Integrated Biomass Pyrolysis Unit takes waste biomass that is currently burned in
-          the open, and routes every fraction of it — solid, gas and liquid — into a product,
-          an input, or permanently stored carbon. Nothing leaves the boundary as waste.
+          The CE² Integrated Biomass Pyrolysis Unit takes biomass that is currently burned in the
+          open and routes every fraction of it — solid, gas and liquid — into a product, an input,
+          or permanently stored carbon.
         </p>
         <div class="founders">
           <div class="founder">
@@ -174,22 +226,102 @@
         <p class="hint-line"><span class="pulse"></span>Tap any glowing node on the unit — or any card below — for the full DPR figures.</p>
       </div>
     </div>
+    <div class="steps" id="steps"><!-- injected from the PROCESS dataset --></div>
+  </section>
 
-    <div class="steps" id="steps">
-      <!-- .step cards are injected by script.js from the PROCESS dataset -->
+  <!-- ======================= ACT 3 — PRODUCTS ======================= -->
+  <section class="act act--tall" id="products" data-act="products">
+    <div class="wrap">
+      <div class="panel panel--intro reveal">
+        <p class="eyebrow">Act III &middot; What we start with</p>
+        <h2>Five products out of one waste stream.</h2>
+        <p class="lede">
+          These are the lines CE² goes to market with from day one. Four of them are sold; the fifth
+          is the carbon itself. Every one of them comes out of biomass that would otherwise have been
+          burned in an open field.
+        </p>
+      </div>
+    </div>
+    <div class="product-reveal reveal">
+      <p class="eyebrow">Straight off the line</p>
+      <p>Everything below comes out of biomass that was going to be burned.</p>
+    </div>
+
+    <div class="wrap">
+      <div class="product-grid" id="productGrid"><!-- injected from the PRODUCTS dataset --></div>
+    </div>
+    <div class="wrap" id="productsEnd">
+      <div class="panel panel--intro reveal">
+        <h3>The reciprocal exchange</h3>
+        <p class="lede">
+          The domestic briquette is deliberately priced at cost. It is not a margin line — it is what
+          CE² hands back to the villages that supply the feedstock, which is why the raw material
+          costs nothing and the open burning stops at the source.
+        </p>
+        <div class="exchange">
+          <div class="exchange__side">
+            <b>Village gives</b>
+            <span>Juliflora &middot; bamboo &middot; groundnut shells &middot; cotton stems</span>
+          </div>
+          <div class="exchange__arrow" aria-hidden="true">⇄</div>
+          <div class="exchange__side exchange__side--out">
+            <b>CE² returns</b>
+            <span>Smokeless briquettes at ₹4/kg &middot; biochar for their fields</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ======================= ACT 3 — FUTURE HORIZONS ======================= -->
+  <!-- ======================= ACT 4 — CARBON RESTORED ======================= -->
+  <section class="act act--tall" id="restoration" data-act="restoration">
+    <div class="wrap">
+      <div class="panel panel--soil reveal">
+        <p class="eyebrow eyebrow--sand">Act IV &middot; Below the surface</p>
+        <h2>How the carbon actually gets restored.</h2>
+        <p class="lede">
+          Carbon removal only counts if the carbon stays removed. This is the path a single tonne
+          takes at CE² — out of the air, through the kiln, into the soil, and held there on a
+          timescale that has nothing to do with the next growing season.
+        </p>
+      </div>
+    </div>
+
+    <div class="flow" id="carbonFlow"><!-- injected from the RESTORATION dataset --></div>
+
+    <div class="wrap" id="restorationEnd">
+      <div class="panel panel--soil reveal">
+        <h3>Why the soil holds it</h3>
+        <p>
+          Pyrolysis rearranges the carbon in biomass into fused aromatic rings. Soil microbes that
+          would strip fresh organic matter in a season cannot break that structure down — so the
+          carbon sits in the pore network for centuries instead of returning to the atmosphere.
+          The same porosity that makes it permanent is what makes it agronomically useful.
+        </p>
+        <div class="outcome">
+          <div><b>Durable</b><span>Century-to-millennium residence time in soil, not a decadal one.</span></div>
+          <div><b>Verified</b><span>Digital MRV and registry-grade documentation on every soil-applied tonne.</span></div>
+          <div><b>Additional</b><span>Credited only on soil application — fuel products are excluded from the claim.</span></div>
+          <div><b>Useful</b><span>The same tonne raises water-holding capacity, CEC and pH in a degraded field.</span></div>
+        </div>
+        <p class="note note--good">
+          <b>~140 tCO₂e per month</b> of durable carbon dioxide removal at current single-unit
+          capacity, issued on soil-applied biochar through the <b>Isometric</b> registry.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ACT 5 — FUTURE HORIZONS ======================= -->
   <section class="act act--tall" id="horizons" data-act="horizons">
     <div class="wrap">
       <div class="panel panel--good reveal">
-        <p class="eyebrow eyebrow--good">Act III — CE² Future Horizons</p>
-        <h2>From one plant to comprehensive carbon restoration.</h2>
+        <p class="eyebrow eyebrow--good">Act V &middot; Back out to orbit</p>
+        <h2>From one plant to a restored landscape.</h2>
         <p class="lede">
           Pyrolysis is the beachhead, not the boundary. The same reciprocal model — free feedstock in,
-          durable carbon and rural value out — extends across three restoration pathways that
-          together move CE² from a facility to a landscape-scale carbon programme.
+          durable carbon and rural value out — extends across three restoration pathways that move
+          CE² from a facility to a landscape-scale carbon programme.
         </p>
       </div>
     </div>
@@ -200,21 +332,7 @@
     </div>
 
     <div class="wrap">
-      <div class="horizon-grid" id="horizonGrid">
-        <!-- .horizon cards injected by script.js from the HORIZONS dataset -->
-      </div>
-    </div>
-
-    <div class="wrap">
-      <div class="panel panel--good reveal">
-        <h3>The measured outcome</h3>
-        <div class="outcome">
-          <div><b>Durable</b><span>Biochar carbon stays in soil on a century-to-millennium residence time, not a decadal one.</span></div>
-          <div><b>Verified</b><span>Digital MRV with registry-grade documentation on every soil-applied tonne.</span></div>
-          <div><b>Reciprocal</b><span>Farmers are paid in fuel, soil amendment and yield — not in promises.</span></div>
-          <div><b>Compounding</b><span>Every restored hectare lowers the input cost of the next one.</span></div>
-        </div>
-      </div>
+      <div class="horizon-grid" id="horizonGrid"><!-- injected from the HORIZONS dataset --></div>
     </div>
   </section>
 
@@ -222,10 +340,11 @@
   <footer class="act act--foot" id="contact" data-act="contact">
     <div class="wrap foot__wrap">
       <div class="foot__lead reveal">
+        <svg class="foot__logo" viewBox="0 0 200 200" aria-hidden="true"><use href="#ce2-mark"/></svg>
         <p class="eyebrow eyebrow--good">Carbon Earth Environment Private Limited</p>
         <h2>Build the loop with us.</h2>
         <p class="lede">
-          Feedstock partners, orchard and row-crop growers, briquette distributors, carbon buyers and
+          Feedstock villages, orchard and row-crop growers, briquette distributors, carbon buyers and
           restoration funders — the model only works because every one of those seats is filled.
         </p>
       </div>
@@ -237,7 +356,7 @@
       </div>
       <div class="foot__bar">
         <span>© <span id="year">2026</span> CE² — Carbon Earth Environment Private Limited</span>
-        <span class="foot__tag">Waste in. Carbon down. Value out.</span>
+        <span class="foot__tag">Waste in &middot; Carbon down &middot; Value out</span>
       </div>
     </div>
   </footer>
@@ -266,7 +385,6 @@
   </article>
 </div>
 
-<!-- ============================ LIBRARIES ============================ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
