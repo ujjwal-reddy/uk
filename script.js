@@ -33,20 +33,19 @@
 
   /* World layer heights — every group and camera station is anchored to these. */
   var GROUND = -40;
-  var UNDER  = -44.6;
 
   /* =======================================================================
      1. CONTENT
      ===================================================================== */
 
-  /** The six stages of the CE² Integrated Biomass Pyrolysis Unit. */
+  /** The five stages of the CE² Integrated Biomass Pyrolysis Unit. */
   var PROCESS = [
     {
       id: 'feedstock', tag: 'Stage 01 · Inbound',
       title: 'Feedstock Collection', sub: 'Reciprocal Sourcing',
-      short: 'Invasive Juliflora, bamboo, groundnut shells and cotton stems are collected free of cost from surrounding villages — paid for not in cash, but in cheap smokeless briquettes returned to the same households.',
+      short: 'Invasive Juliflora, bamboo, groundnut shells and cotton stems are collected free of cost from surrounding villages — paid for not in cash, but in smokeless briquettes returned to the same households.',
       lede: 'CE² does not buy biomass. It trades for it. Rural households hand over residue that today is burned in the open, and receive back a clean, low-cost cooking fuel made from it. The feedstock cost line goes to zero and the village gains a smokeless kitchen.',
-      metrics: [ { v: '~378 t', l: 'Feedstock / month' }, { v: '₹0', l: 'Raw material cost' }, { v: '4', l: 'Primary streams' } ],
+      metrics: [ { v: 'Free', l: 'Cost of feedstock' }, { v: '4', l: 'Residue streams' }, { v: 'Village-led', l: 'Collection' } ],
       blocks: [
         { h: 'Feedstock streams', items: [
           '<b>Prosopis juliflora</b> — invasive, groundwater-depleting scrub cleared from fallow and grazing land; removal is itself a restoration act.',
@@ -55,27 +54,27 @@
           '<b>Cotton stems</b> — woody post-harvest stalks, a major open-burning source across the district.'
         ]},
         { h: 'The reciprocal exchange', items: [
-          'Villages supply residue at zero cost and take back smokeless briquettes at a domestic price of <b>₹4/kg</b>.',
+          'Villages supply residue at no cost and take back smokeless briquettes at a domestic price of <b>₹4/kg</b>.',
           'Household smoke exposure falls; open-field burning stops at the source.',
           'Collection routes double as CE² extension contact for biochar demonstration plots.',
-          'Every tonne diverted from open burning is a tonne available for permanent carbon storage.'
+          'Every load diverted from open burning is carbon available for permanent storage.'
         ]}
       ]
     },
     {
       id: 'pyrolysis', tag: 'Stage 02 · Conversion',
-      title: 'Closed-Loop Pyrolysis', sub: '6 Kilns × 3 Tonne',
-      short: 'Six three-tonne kilns process roughly 378 t/month of feedstock in an oxygen-starved, closed-loop configuration — syngas is captured and burned back as process heat, with zero-liquid discharge on the condensate line.',
+      title: 'Closed-Loop Pyrolysis', sub: 'Slow, oxygen-starved, captured',
+      short: 'A bank of retort kilns heats the biomass without oxygen, so it cannot burn. The gas it gives off is piped back to fire the kilns, and the vapour is condensed rather than vented.',
       lede: 'The thermal core of the plant. Biomass is heated in the near-absence of oxygen so it cannot combust; instead it fractures into a solid carbon skeleton, a combustible gas and a condensable vapour. CE² keeps all three inside the boundary.',
-      metrics: [ { v: '6 × 3 t', l: 'Kiln configuration' }, { v: '~378 t', l: 'Throughput / month' }, { v: 'ZLD', l: 'Liquid discharge' } ],
+      metrics: [ { v: 'Oxygen-starved', l: 'Kiln regime' }, { v: 'Syngas', l: 'Recycled as heat' }, { v: 'Zero', l: 'Liquid discharge' } ],
       blocks: [
         { h: 'Closed-loop design', items: [
           '<b>Syngas capture</b> — non-condensable gases are routed back to the kiln burners, so the reaction sustains its own process heat after start-up.',
           '<b>Zero-liquid discharge</b> — condensate is recovered as saleable co-products instead of released; nothing enters the local water table.',
           '<b>Emission control</b> — closed kilns replace open burning, converting an uncontrolled release into a captured, measurable stream.',
-          '<b>Batch traceability</b> — each kiln batch is logged for feedstock type, residence time and yield, feeding the MRV chain downstream.'
+          '<b>Batch traceability</b> — each kiln batch is logged for feedstock type, residence time and yield.'
         ]},
-        { h: 'Output split per cycle', items: [
+        { h: 'What each batch becomes', items: [
           'Solid fraction → <b>biochar</b> for crop-specific inoculation and durable carbon storage.',
           'Solid fines → <b>charcoal briquettes</b>.',
           'Condensable vapour → <b>wood vinegar</b> and <b>wood tar oil</b>.',
@@ -86,9 +85,9 @@
     {
       id: 'biochar', tag: 'Stage 03 · Soil',
       title: 'Crop-Specific Biochar', sub: 'Inoculation & Enrichment',
-      short: '30 t/month of biochar charged with manure, wood ash (K), bone meal (P) and a micronutrient pack (Fe, Zn, B, Mg), then formulated per crop — Mosambi, Banana, Pomegranate and Groundnut.',
+      short: 'Fresh char is charged with manure, wood ash (K), bone meal (P) and a micronutrient pack (Fe, Zn, B, Mg), then blended into a formulation for the crop it is going under — Mosambi, Banana, Pomegranate or Groundnut.',
       lede: 'Raw biochar is a porous carbon skeleton — enormous surface area, but nutritionally empty. CE² inoculates it before it reaches a field, so the char arrives pre-charged rather than stripping nutrients from the soil in its first season.',
-      metrics: [ { v: '30 t', l: 'Biochar / month' }, { v: '4', l: 'Crop formulations' }, { v: '4+', l: 'Micronutrients' } ],
+      metrics: [ { v: '4', l: 'Crop formulations' }, { v: 'Fe Zn B Mg', l: 'Micronutrient pack' }, { v: 'Pre-charged', l: 'Before it reaches the field' } ],
       blocks: [
         { h: 'Inoculation charge', items: [
           '<b>Farmyard manure</b> — seeds the pore network with live microbial consortia and labile organic carbon.',
@@ -113,18 +112,18 @@
     {
       id: 'briquettes', tag: 'Stage 04 · Fuel',
       title: 'Smokeless Charcoal Briquettes', sub: 'Pillow · Hexagon · Honeycomb',
-      short: '50 t/month of charcoal fines densified into three profiles — 20 t at a domestic price of ₹4/kg to feedstock-supplying villages, and 30 t into the commercial market at ₹35/kg.',
+      short: 'The fine fraction of the char is densified into three burn profiles. A domestic grade goes back to feedstock villages at cost; a commercial grade serves hospitality and industrial heat.',
       lede: 'The briquette line is what makes the reciprocal model work. It converts the fine fraction of the char into a product the supplying village actually wants, while a commercial grade carries the revenue.',
-      metrics: [ { v: '50 t', l: 'Briquettes / month' }, { v: '₹4 / kg', l: 'Domestic — 20 t' }, { v: '₹35 / kg', l: 'Commercial — 30 t' } ],
+      metrics: [ { v: '3', l: 'Profiles' }, { v: '₹4 / kg', l: 'Domestic, at cost' }, { v: '₹35 / kg', l: 'Commercial' } ],
       blocks: [
         { h: 'Product profiles', items: [
           '<b>Pillow</b> — general-purpose domestic and barbecue format, high packing density for transport.',
           '<b>Hexagon</b> — extruded commercial bar with a long, even burn for hospitality and industrial heat.',
           '<b>Honeycomb</b> — perforated block for controlled airflow in traditional stoves and continuous burners.'
         ]},
-        { h: 'Market split', items: [
-          '<b>20 t/month domestic @ ₹4/kg</b> — priced at cost for the villages supplying feedstock; the return leg of the reciprocal exchange.',
-          '<b>30 t/month commercial @ ₹35/kg</b> — hotels, restaurants, barbecue retail and industrial users; carries the margin.',
+        { h: 'Two grades, two jobs', items: [
+          '<b>Domestic @ ₹4/kg</b> — priced at cost for the villages supplying feedstock; the return leg of the reciprocal exchange.',
+          '<b>Commercial @ ₹35/kg</b> — hotels, restaurants, barbecue retail and industrial users; carries the margin.',
           'Smokeless combustion removes the indoor air-quality burden of raw wood and dung cake.',
           'Displaces both fuelwood harvesting and open residue burning in the same transaction.'
         ]}
@@ -133,42 +132,21 @@
     {
       id: 'coproducts', tag: 'Stage 05 · Recovery',
       title: 'Co-Products Recovery', sub: 'Wood Vinegar & Tar Oil',
-      short: 'Condensate recovery yields ~13,608 L/month of wood vinegar as an organic bio-stimulant and ~2,520 kg/month of wood tar oil — the fractions that open burning simply loses to the sky.',
+      short: 'The vapour leaving the kilns is condensed and separated into wood vinegar — an organic bio-stimulant — and wood tar oil, the fractions that open burning simply loses to the sky.',
       lede: 'The vapour stream is where most pyrolysis operations lose value and create a discharge problem. CE² condenses and separates it into two saleable products, closing the liquid loop.',
-      metrics: [ { v: '~13,608 L', l: 'Wood vinegar / month' }, { v: '~2,520 kg', l: 'Wood tar oil / month' }, { v: '0 L', l: 'Effluent discharged' } ],
+      metrics: [ { v: 'Wood vinegar', l: 'Organic bio-stimulant' }, { v: 'Tar oil', l: 'Industrial fraction' }, { v: 'Zero', l: 'Effluent discharged' } ],
       blocks: [
         { h: 'Wood vinegar (pyroligneous acid)', items: [
           'Applied dilute as an <b>organic bio-stimulant</b> and foliar tonic — germination, rooting and vigour.',
           'Acts as a natural pest and fungal deterrent, reducing synthetic pesticide load.',
           'Pairs with CE² biochar as a combined soil-and-foliar programme sold into the same farm.',
-          'Recovery of <b>~13,608 L/month</b> turns a waste condensate into a second agricultural revenue line.'
+          'Recovering it turns a waste condensate into a second agricultural product.'
         ]},
         { h: 'Wood tar oil', items: [
-          '<b>~2,520 kg/month</b> recovered as a heavy fraction from the same condenser train.',
+          'The heavy fraction from the same condenser train.',
           'Industrial applications: timber preservation, anti-corrosive coating and binder feedstock.',
           'Removing it from the effluent path is what makes zero-liquid discharge achievable.',
           'Optional internal use as supplementary kiln fuel during cold start-up.'
-        ]}
-      ]
-    },
-    {
-      id: 'mrv', tag: 'Stage 06 · Carbon',
-      title: 'Digital MRV & Carbon Credits', sub: 'Isometric Registry',
-      short: 'Registry-verified durable carbon dioxide removal issued on soil-applied biochar only — approximately 140 tCO₂e per month, measured, reported and verified through a digital chain of custody.',
-      lede: 'Carbon revenue is claimed on the fraction that is genuinely permanent: char that goes into the ground and stays there. Fuel products are excluded from the removal claim, which is what makes the credit defensible.',
-      metrics: [ { v: '~140 tCO₂e', l: 'Removal / month' }, { v: 'Isometric', l: 'Registry' }, { v: 'Soil-applied', l: 'Eligible basis' } ],
-      blocks: [
-        { h: 'Measurement, reporting, verification', items: [
-          '<b>Feedstock logging</b> — species, mass and origin village recorded at intake.',
-          '<b>Batch records</b> — kiln, temperature regime and residence time per production cycle.',
-          '<b>Product characterisation</b> — carbon fraction and stability testing on the biochar output.',
-          '<b>Application evidence</b> — geotagged field records proving soil application, the only credited pathway.'
-        ]},
-        { h: 'Why it is durable', items: [
-          'Pyrolysed carbon resists microbial decomposition on a century-to-millennium residence time.',
-          'The same tonne delivers removal <i>and</i> agronomic benefit — the farmer is paid twice over.',
-          'Registry-grade documentation supports credit issuance under the <b>Isometric</b> protocol.',
-          'Approximately <b>140 tCO₂e per month</b> of durable removal at current single-unit capacity.'
         ]}
       ]
     }
@@ -179,11 +157,11 @@
     {
       id: 'p-biochar', tag: 'Product 01', title: 'Crop-Specific Biochar', sub: 'Inoculated soil amendment',
       tone: 'char', swatchColor: '#2B2B28',
-      rate: { v: '30 t', l: 'per month' },
+      rate: { v: 'Crop-specific', l: 'formulated per crop' },
       forms: ['Mosambi', 'Banana', 'Pomegranate', 'Groundnut'],
       short: 'Porous carbon pre-charged with manure, wood ash, bone meal and micronutrients, then blended to a formulation for the crop it is going under.',
-      lede: 'The flagship line and the only product that carries the carbon claim. Raw char is inoculated before it leaves the plant so it arrives at the field already loaded with nutrients and microbial life, rather than scavenging them from the soil in its first season.',
-      metrics: [ { v: '30 t', l: 'Output / month' }, { v: '4', l: 'Crop formulations' }, { v: 'Fe Zn B Mg', l: 'Micronutrient pack' } ],
+      lede: 'The flagship line. Raw char is inoculated before it leaves the plant so it arrives at the field already loaded with nutrients and microbial life, rather than scavenging them from the soil in its first season.',
+      metrics: [ { v: '4', l: 'Crop formulations' }, { v: 'Fe Zn B Mg', l: 'Micronutrient pack' }, { v: 'Centuries', l: 'Carbon residence in soil' } ],
       blocks: [
         { h: 'What goes into the charge', items: [
           '<b>Farmyard manure</b> — live microbial consortia seeded into the pore network.',
@@ -202,11 +180,11 @@
     {
       id: 'p-briquette', tag: 'Product 02', title: 'Smokeless Briquettes', sub: 'Pillow · Hexagon · Honeycomb',
       tone: 'briq', swatchColor: '#4A4038',
-      rate: { v: '50 t', l: 'per month' },
+      rate: { v: 'Smokeless', l: 'three burn profiles' },
       forms: ['Pillow', 'Hexagon', 'Honeycomb'],
-      short: 'Charcoal fines densified into three burn profiles. 20 t goes back to feedstock villages at ₹4/kg; 30 t carries the commercial market at ₹35/kg.',
+      short: 'Charcoal fines densified into three burn profiles. A domestic grade goes back to feedstock villages at ₹4/kg; a commercial grade serves the market at ₹35/kg.',
       lede: 'The product that closes the reciprocal loop. Households that supply residue buy back a clean fuel made from it at cost, which is why CE² pays nothing for feedstock and why the open burning stops.',
-      metrics: [ { v: '20 t', l: 'Domestic @ ₹4/kg' }, { v: '30 t', l: 'Commercial @ ₹35/kg' }, { v: '3', l: 'Profiles' } ],
+      metrics: [ { v: '₹4 / kg', l: 'Domestic, at cost' }, { v: '₹35 / kg', l: 'Commercial' }, { v: '3', l: 'Profiles' } ],
       blocks: [
         { h: 'The three profiles', items: [
           '<b>Pillow</b> — general-purpose domestic and barbecue format; packs densely for transport.',
@@ -224,11 +202,11 @@
     {
       id: 'p-vinegar', tag: 'Product 03', title: 'Wood Vinegar', sub: 'Organic bio-stimulant',
       tone: 'vin', swatchColor: '#C79A4B',
-      rate: { v: '~13,608 L', l: 'per month' },
+      rate: { v: 'Organic', l: 'bio-stimulant' },
       forms: ['Foliar tonic', 'Root drench', 'Pest deterrent'],
       short: 'Pyroligneous acid condensed out of the pyrolysis vapour, applied dilute as an organic bio-stimulant and natural pest deterrent.',
       lede: 'The condensate most operations treat as an effluent problem. CE² recovers it as a second agricultural product that sells into the same farms already buying biochar.',
-      metrics: [ { v: '~13,608 L', l: 'Recovery / month' }, { v: 'Organic', l: 'Input class' }, { v: '0 L', l: 'Discharged' } ],
+      metrics: [ { v: 'Organic', l: 'Input class' }, { v: 'Foliar & root', l: 'Application' }, { v: 'Zero', l: 'Discharged' } ],
       blocks: [
         { h: 'Field use', items: [
           'Applied dilute as a <b>foliar tonic</b> — germination, rooting and general vigour.',
@@ -241,11 +219,11 @@
     {
       id: 'p-tar', tag: 'Product 04', title: 'Wood Tar Oil', sub: 'Industrial heavy fraction',
       tone: 'tar', swatchColor: '#3A2C1F',
-      rate: { v: '~2,520 kg', l: 'per month' },
+      rate: { v: 'Industrial', l: 'heavy fraction' },
       forms: ['Timber preservative', 'Anti-corrosive', 'Binder feedstock'],
       short: 'The heavy fraction separated from the same condenser train — timber preservation, anti-corrosive coating and binder feedstock.',
       lede: 'Separating the tar fraction is not optional book-keeping; it is the step that lets the liquid loop close. Once removed it becomes an industrial product rather than a disposal cost.',
-      metrics: [ { v: '~2,520 kg', l: 'Recovery / month' }, { v: '3', l: 'Application classes' }, { v: 'ZLD', l: 'Enables' } ],
+      metrics: [ { v: '3', l: 'Application classes' }, { v: 'ZLD', l: 'Enables' }, { v: 'Start-up fuel', l: 'Optional internal use' } ],
       blocks: [
         { h: 'Applications', items: [
           '<b>Timber preservation</b> — traditional and industrial wood treatment.',
@@ -254,51 +232,64 @@
           'Optional internal use as supplementary kiln fuel during cold start-up.'
         ]}
       ]
-    },
-    {
-      id: 'p-credit', tag: 'Product 05', title: 'Durable Carbon Credits', sub: 'Isometric registry',
-      tone: 'credit', swatchColor: '#007843',
-      rate: { v: '~140 tCO₂e', l: 'per month' },
-      forms: ['Soil-applied only', 'Digital MRV', 'Century-scale'],
-      short: 'Registry-verified durable carbon dioxide removal, issued only on biochar that is proven to have gone into soil.',
-      lede: 'The fifth product is the carbon itself. It is claimed on the soil-applied fraction alone — fuel products are excluded — which is precisely what makes the credit defensible to a buyer.',
-      metrics: [ { v: '~140 tCO₂e', l: 'Removal / month' }, { v: 'Isometric', l: 'Registry' }, { v: 'Soil-applied', l: 'Eligible basis' } ],
-      blocks: [
-        { h: 'The chain of custody', items: [
-          '<b>Intake</b> — species, mass and origin village logged at collection.',
-          '<b>Conversion</b> — kiln, temperature regime and residence time per batch.',
-          '<b>Characterisation</b> — carbon fraction and stability testing on the output.',
-          '<b>Application</b> — geotagged field evidence; only this fraction is credited.'
-        ]},
-        { h: 'Why a buyer can rely on it', items: [
-          'Pyrolysed carbon resists microbial breakdown on a century-to-millennium timescale.',
-          'Storage is not reversible by fire, tillage or a change of land use in the way standing biomass is.',
-          'The farmer gains yield from the same tonne, so the practice sustains itself without subsidy.',
-          'Documentation is registry-grade under the <b>Isometric</b> protocol.'
-        ]}
-      ]
     }
   ];
 
-  /** How a tonne of carbon actually gets restored — the descent. */
-  var RESTORATION = [
-    { depth: 'Atmosphere · +2 m', title: 'Carbon is pulled out of the air',
-      body: 'Juliflora, bamboo, groundnut and cotton do the capture for us. Photosynthesis moves atmospheric CO₂ into stems, shells and stalks over a growing season — the cheapest direct air capture that exists.',
-      meter: 8,  note: 'Biogenic carbon, freshly fixed and entirely unstable.' },
-    { depth: 'Surface · 0 m', title: 'It is collected instead of burned',
-      body: 'Left alone, that residue is burned in the open and the carbon is back in the atmosphere within hours. Collected under the reciprocal exchange, the same material arrives at the kiln with its carbon still intact.',
-      meter: 24, note: 'The single decision that makes everything downstream possible.' },
-    { depth: 'Kiln · 400–600 °C', title: 'Pyrolysis locks the structure',
-      body: 'Heated without oxygen, the biomass cannot burn. It fractures instead, and the carbon rearranges into fused aromatic rings — a form soil microbes have no efficient way to break apart.',
-      meter: 52, note: 'Unstable plant carbon becomes recalcitrant carbon.' },
-    { depth: 'Root zone · −0.3 m', title: 'It goes into the ground',
-      body: 'Inoculated biochar is worked into the root zone. The porosity that makes it permanent also raises water-holding capacity, cation exchange and pH — so the field improves in the same act that stores the carbon.',
-      meter: 78, note: 'Only this fraction is ever claimed as removal.' },
-    { depth: 'Held · centuries', title: 'And it stays there',
-      body: 'Residence time is measured in centuries to millennia, not seasons. Every soil-applied tonne is documented through digital MRV and issued as durable removal on the Isometric registry — roughly 140 tCO₂e each month.',
-      meter: 100, note: '~140 tCO₂e / month · Isometric · soil-applied basis.' }
+  /** The carbon cycle CE² closes — six stations, round and round. */
+  var CYCLE = [
+    { id: 'c-air', tag: 'Stage 01', title: 'Air', sub: 'Carbon dioxide in the atmosphere',
+      short: 'This is where every tonne starts — and where open burning sends it straight back. The whole point of the loop is to make this the shortest stop on the circuit.',
+      lede: 'Atmospheric carbon dioxide is the raw material of the cycle and the thing the cycle is designed to keep out of. Every other station exists to move carbon away from here and hold it somewhere useful.',
+      metrics: [ { v: 'CO₂', l: 'The form it arrives in' }, { v: 'Hours', l: 'How fast burning returns it' }, { v: 'Centuries', l: 'How long the loop holds it' } ],
+      blocks: [ { h: 'What the loop changes', items: [
+        'Open burning is a one-way trip: field to sky in an afternoon.',
+        'CE² inserts four stations between the plant and the air, and the last of them is soil.',
+        'Carbon that reaches the soil station is out of this station for a very long time.' ]} ] },
+    { id: 'c-plants', tag: 'Stage 02', title: 'Plants', sub: 'Photosynthesis does the capture',
+      short: 'Juliflora, bamboo, groundnut and cotton pull CO₂ out of the air over a growing season and fix it into stems, shells and stalks — the cheapest direct air capture there is.',
+      lede: 'Nothing CE² builds captures carbon as efficiently as the crops and scrub already growing across the district. The plants are the collector; the job is to make sure what they collect is not simply burned.',
+      metrics: [ { v: 'Juliflora', l: 'Invasive scrub' }, { v: 'Groundnut', l: 'Signature residue' }, { v: 'Cotton', l: 'Woody stalks' } ],
+      blocks: [ { h: 'The feedstock species', items: [
+        '<b>Prosopis juliflora</b> — invasive, water-hungry, and everywhere: clearing it is a restoration act in itself.',
+        '<b>Groundnut shells and cotton stems</b> — the post-harvest residue of the district’s two main crops.',
+        '<b>Bamboo</b> — offcuts and thinnings with a high fixed-carbon yield.' ]} ] },
+    { id: 'c-collect', tag: 'Stage 03', title: 'Collection', sub: 'Gathered instead of burned',
+      short: 'Left alone, that residue is burned in the open and the carbon is back in the air within hours. Collected under the reciprocal exchange, it arrives at the kiln with its carbon intact.',
+      lede: 'The single decision that makes everything downstream possible. Residue is collected free of cost from the villages that produce it, and paid for in smokeless fuel — so the field is cleared without a match.',
+      metrics: [ { v: 'Free', l: 'To the farmer' }, { v: 'Briquettes', l: 'What comes back' }, { v: 'No fire', l: 'The field is still cleared' } ],
+      blocks: [ { h: 'Why it works', items: [
+        'The farmer gets the field cleared, which is what the fire was for.',
+        'The household gets a clean cooking fuel at cost.',
+        'CE² gets its feedstock at no cost and the carbon stays in the loop.' ]} ] },
+    { id: 'c-kiln', tag: 'Stage 04', title: 'Kiln', sub: 'Pyrolysis locks the structure',
+      short: 'Heated without oxygen, the biomass cannot burn. It fractures instead, and the carbon rearranges into fused aromatic rings — a form soil microbes have no efficient way to break apart.',
+      lede: 'This is where unstable plant carbon becomes recalcitrant carbon. The gas the kiln gives off is piped back to heat it; the vapour is condensed into wood vinegar and tar oil; nothing is vented and nothing is poured away.',
+      metrics: [ { v: 'No oxygen', l: 'So it cannot burn' }, { v: 'Syngas', l: 'Heats the next batch' }, { v: 'Condensed', l: 'Vapour, not smoke' } ],
+      blocks: [ { h: 'Inside the retort', items: [
+        'Slow heating in a sealed drum drives off water, then volatiles, leaving a carbon skeleton.',
+        'The aromatic ring structure that forms is what gives biochar its centuries-long residence time.',
+        'Every batch is logged — feedstock, temperature regime and residence time.' ]} ] },
+    { id: 'c-biochar', tag: 'Stage 05', title: 'Biochar', sub: 'Charged before it leaves',
+      short: 'Fresh char is inoculated with manure, wood ash, bone meal and micronutrients, then blended for the crop it is going under. It arrives at the field already loaded.',
+      lede: 'Raw char is a sponge with nothing in it. Charged with nutrients and microbial life before it leaves the plant, it feeds the crop from day one instead of stealing from the soil in its first season.',
+      metrics: [ { v: 'Manure · ash · bone meal', l: 'The charge' }, { v: 'Fe Zn B Mg', l: 'Micronutrients' }, { v: '4 crops', l: 'Formulations' } ],
+      blocks: [ { h: 'Why inoculate', items: [
+        'Uncharged biochar can lock up nutrients for a season; charged biochar releases them.',
+        'Wood ash brings alkalinity that counters fertilizer acidification directly.',
+        'The porosity that holds nutrients is the same porosity that holds water.' ]} ] },
+    { id: 'c-soil', tag: 'Stage 06', title: 'Soil', sub: 'Held for centuries — and the crop grows back',
+      short: 'Worked into the root zone, the char stays put on a timescale of centuries. The field holds more water, buffers salt, leans back toward the right pH — and the next crop grows in it, closing the loop.',
+      lede: 'The last station and the reason for all the others. Carbon in soil in this form does not go back to the air on any timescale that matters to us, and the same porosity that makes it permanent makes the field better. Then the plants grow again, and the cycle turns.',
+      metrics: [ { v: 'Centuries', l: 'Residence time' }, { v: 'Water · pH · CEC', l: 'What improves' }, { v: 'Field by field', l: 'Every application logged' } ],
+      blocks: [ { h: 'What the field gets', items: [
+        'Higher water-holding capacity on sandy red soils, so a 522 mm rainfall budget stretches further.',
+        'Salts from borewell irrigation buffered in the pore network.',
+        'pH nudged back toward the crop optimum by the ash charge.',
+        'Nutrients held in the root zone rather than leached away.' ]},
+        { h: 'And then', items: [
+        'The crop grows, fixes more carbon from the air, and its residue comes back to the kiln.',
+        'Each turn of the loop leaves a little more carbon in the ground than the last.' ]} ] }
   ];
-
 
   /** Every smoke stream around Anantapur, paired with what CE² does about it. */
   var SOURCES = [
@@ -306,9 +297,9 @@
       id: 's-industry', tag: 'Source 01', title: 'Industrial & Thermal Combustion',
       sub: 'Factory stacks, boilers, brick and charcoal kilns',
       emits: 'Continuous point-source CO₂, SO\u2093 and particulates from coal- and diesel-fired boilers, brick clamps and traditional charcoal pits running uncontrolled across the district.',
-      fix: 'CE² commercial briquettes displace coal and fuelwood in exactly these burners — 30 t/month at ₹35/kg — while the plant\u2019s own kilns capture syngas and burn it back as process heat instead of drawing external fuel.',
+      fix: 'CE² commercial briquettes displace coal and fuelwood in exactly these burners, while the plant\u2019s own kilns capture syngas and burn it back as process heat instead of drawing external fuel.',
       lede: 'The most visible smoke in the district, and the easiest to mistake for someone else\u2019s problem. Industrial and thermal burners run on coal, diesel and raw fuelwood; traditional brick and charcoal kilns burn in the open with no capture at all.',
-      metrics: [ { v: '30 t', l: 'Commercial briquettes / mo' }, { v: '₹35 / kg', l: 'Commercial price' }, { v: 'Syngas', l: 'Recaptured as heat' } ],
+      metrics: [ { v: 'Briquettes', l: 'Commercial grade' }, { v: '₹35 / kg', l: 'Commercial price' }, { v: 'Syngas', l: 'Recaptured as heat' } ],
       blocks: [
         { h: 'What it puts into the air', items: [
           'Point-source <b>CO₂</b> from coal, lignite and diesel combustion, running continuously rather than seasonally.',
@@ -328,9 +319,9 @@
       id: 's-residue', tag: 'Source 02', title: 'Open Agricultural Residue Burning',
       sub: 'Stubble, shells, stems and orchard prunings',
       emits: 'Groundnut shells, cotton stems and orchard prunings burned in the open at the end of every harvest — carbon that took a season to fix, released in a few hours.',
-      fix: 'CE² collects that same residue free of cost under the reciprocal exchange — roughly 378 t/month — and converts it in closed kilns, so the carbon is banked as biochar instead of vented.',
+      fix: 'CE² collects that same residue free of cost under the reciprocal exchange and converts it in closed kilns, so the carbon is banked as biochar instead of vented.',
       lede: 'This is the stream CE² was built around. Residue burning is not carelessness; it is the cheapest way to clear a field before the next sowing. The only way to stop it is to make the residue worth more than the match.',
-      metrics: [ { v: '~378 t', l: 'Diverted / month' }, { v: '₹0', l: 'Cost to the farmer' }, { v: '365 days', l: 'Burning season here' } ],
+      metrics: [ { v: 'Closed kilns', l: 'Instead of open fire' }, { v: '₹0', l: 'Cost to the farmer' }, { v: '365 days', l: 'Burning season here' } ],
       blocks: [
         { h: 'What it puts into the air', items: [
           '<b>Biogenic CO₂</b> released in hours instead of being banked for centuries.',
@@ -341,7 +332,7 @@
         { h: 'What CE² does about it', items: [
           '<b>Free collection</b> of juliflora, bamboo, groundnut shells and cotton stems — the farmer pays nothing and clears the field anyway.',
           '<b>Reciprocal payment in fuel</b> — the village receives smokeless briquettes at ₹4/kg, so the exchange is worth making.',
-          '<b>Closed-kiln conversion</b> at roughly 378 t/month, turning the fire into biochar, briquettes and recovered liquids.',
+          '<b>Closed-kiln conversion</b>, turning the fire into biochar, briquettes and recovered liquids.',
           'Removing the burn removes the emission at source rather than offsetting it elsewhere.'
         ]}
       ]
@@ -350,9 +341,9 @@
       id: 's-domestic', tag: 'Source 03', title: 'Domestic Cooking Smoke',
       sub: 'Fuelwood and dung cake in the household chulha',
       emits: 'Raw fuelwood and dung cake burned indoors on open stoves — a household-scale emission that is also the district\u2019s most direct health burden, borne mostly by women and children.',
-      fix: 'The domestic briquette line is priced at cost — 20 t/month at ₹4/kg — and goes back to the same villages that supplied the feedstock, replacing smoky fuel with a clean-burning one.',
+      fix: 'The domestic briquette line is priced at cost — ₹4/kg — and goes back to the same villages that supplied the feedstock, replacing smoky fuel with a clean-burning one.',
       lede: 'The smallest stack and the one that matters most to the people standing next to it. CE² treats the domestic fuel line as payment rather than product, which is what makes the whole reciprocal model close.',
-      metrics: [ { v: '20 t', l: 'Domestic briquettes / mo' }, { v: '₹4 / kg', l: 'At cost, not at margin' }, { v: '3', l: 'Burn profiles' } ],
+      metrics: [ { v: 'Domestic', l: 'Briquette grade' }, { v: '₹4 / kg', l: 'At cost, not at margin' }, { v: '3', l: 'Burn profiles' } ],
       blocks: [
         { h: 'What it puts into the air', items: [
           '<b>Indoor particulate matter</b> at concentrations far above outdoor exposure.',
@@ -396,7 +387,7 @@
       emits: 'Synthetic nitrogen is energy-intensive to manufacture, and urea-heavy regimes vent nitrous oxide from the root zone — roughly 273× the warming potential of CO₂ — while acidifying the soil.',
       fix: 'CE² biochar arrives pre-charged with manure, wood ash, bone meal and micronutrients, and wood vinegar substitutes for part of the chemical programme, cutting synthetic input rather than supplementing it.',
       lede: 'Not smoke you can see, but the highest-leverage stream on the list. The manufacturing emission sits upstream; the N₂O emission comes straight out of the field, and the acidification it causes is what CE² biochar is formulated to reverse.',
-      metrics: [ { v: '~273×', l: 'N₂O vs CO₂ warming' }, { v: '30 t', l: 'Inoculated biochar / mo' }, { v: '4', l: 'Crop formulations' } ],
+      metrics: [ { v: '~273×', l: 'N₂O vs CO₂ warming' }, { v: 'Inoculated', l: 'Biochar, pre-charged' }, { v: '4', l: 'Crop formulations' } ],
       blocks: [
         { h: 'What it puts into the air', items: [
           '<b>Manufacturing CO₂</b> — synthetic nitrogen is among the most energy-intensive farm inputs there is.',
@@ -508,7 +499,7 @@
     }
   ];
 
-  var SETS = { source: SOURCES, process: PROCESS, product: PRODUCTS, horizon: HORIZONS };
+  var SETS = { source: SOURCES, process: PROCESS, product: PRODUCTS, cycle: CYCLE, horizon: HORIZONS };
 
   /* =======================================================================
      2. DOM CONSTRUCTION
@@ -584,16 +575,16 @@
 
   /* --- carbon restoration flow ------------------------------------------- */
   var flowHost = $('#carbonFlow');
-  RESTORATION.forEach(function (r, i) {
+  CYCLE.forEach(function (c, i) {
     var sec = document.createElement('div');
     sec.className = 'flow__step';
     sec.dataset.flow = String(i);
     sec.innerHTML =
-      '<article class="flow__card">' +
-        '<span class="flow__depth">' + r.depth + '</span>' +
-        '<h3>' + r.title + '</h3><p>' + r.body + '</p>' +
-        '<div class="flow__meter"><i style="width:' + r.meter + '%"></i></div>' +
-        '<p class="flow__note">' + r.note + '</p>' +
+      '<article class="flow__card" data-open="cycle" data-index="' + i + '" tabindex="0" role="button">' +
+        '<span class="flow__depth">' + c.tag + ' &middot; ' + c.sub + '</span>' +
+        '<h3>' + c.title + '</h3><p>' + c.short + '</p>' +
+        '<div class="flow__meter"><i style="width:' + Math.round((i + 1) / CYCLE.length * 100) + '%"></i></div>' +
+        '<p class="flow__note">' + (i === CYCLE.length - 1 ? 'Round to the start — the loop turns again.' : 'Next: ' + CYCLE[i + 1].title) + '</p>' +
       '</article>';
     flowHost.appendChild(sec);
   });
@@ -640,6 +631,9 @@
   PRODUCTS.forEach(function (p, i) {
     markers.push({ el: buildMarker(p.title, 'P' + (i + 1), 'product', i, 'sand'), group: 'product', i: i });
   });
+  CYCLE.forEach(function (c, i) {
+    markers.push({ el: buildMarker(c.title, 'C' + (i + 1), 'cycle', i, 'sky'), group: 'cycle', i: i });
+  });
   HORIZONS.forEach(function (h, i) {
     markers.push({ el: buildMarker(h.title, 'H' + (i + 1), 'horizon', i, null), group: 'horizon', i: i });
   });
@@ -662,8 +656,9 @@
   var BADGE = { source:  function (i) { return 'S' + (i + 1); },
                 process: function (i) { return String(i + 1).padStart(2, '0'); },
                 product: function (i) { return 'P' + (i + 1); },
+                cycle:   function (i) { return 'C' + (i + 1); },
                 horizon: function (i) { return 'H' + (i + 1); } };
-  var MARKER_GROUP = { source: 'source', process: 'plant', product: 'product', horizon: 'horizon' };
+  var MARKER_GROUP = { source: 'source', process: 'plant', product: 'product', cycle: 'cycle', horizon: 'horizon' };
 
   function renderModal(setName, index) {
     var data = SETS[setName] || PROCESS;
@@ -762,8 +757,8 @@
       closeMenu();
       var el = document.getElementById(a.getAttribute('data-jump'));
       if (!el) return;
-      var top = el.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: top, behavior: REDUCED ? 'auto' : 'smooth' });
+      var top = el.getBoundingClientRect().top + window.scrollY - 76;
+      window.scrollTo({ top: Math.max(0, top), behavior: REDUCED ? 'auto' : 'smooth' });
     });
   });
 
@@ -826,12 +821,13 @@
 
   var canvas = $('#webgl');
   var scene, camera, renderer, clock;
-  var starField, earthGroup, stacksGroup, terrainGroup, plantGroup, productGroup, soilGroup, horizonGroup;
+  var starField, earthGroup, stacksGroup, terrainGroup, plantGroup, productGroup, cycleGroup, horizonGroup;
   var globePoints, smogPoints, healPoints, atmosphere, earthCore, earthWire, regionPin;
-  var kilns = [], plantRing, plantSpin, plantCore;
-  var sourceNodes = [], processNodes = [], productNodes = [], horizonNodes = [];
+  var kilns = [];
+  var sourceNodes = [], processNodes = [], productNodes = [], cycleNodes = [], horizonNodes = [];
+  var cycleStations = [], cycleArrows = [], ringFlow, cycleMats;
   var stackUnits = [], stackHaze, stackMats;
-  var dustPoints, carbonFall, charSpecks, lockGlow, scrub = [];
+  var dustPoints, scrub = [];
   var raycaster, pointer, projected, tmpV;
   var running = false;
 
@@ -1181,6 +1177,11 @@
             + Math.sin(x * 0.37 + 1.4) * Math.cos(y * 0.31) * 0.85
             + Math.sin((x + y) * 0.06) * 1.4;
       var edge = Math.min(1, Math.hypot(x, y) / 42);
+      /* a graded flat where the compound, platter and cycle ring stand —
+         plane-local (x, y) is world (x, -z), so the yard at world x≈3.9 sits
+         inside a level roughly centred on x≈2 */
+      var flat = clamp((Math.hypot(x - 2.0, y + 0.4) - 6.5) / 4.5, 0, 1);
+      h = lerp(0.0, h, flat * flat * (3 - 2 * flat));
       pos.setZ(i, h - edge * edge * 5.0);   /* falls away at the horizon */
     }
     geo.computeVertexNormals();
@@ -1189,7 +1190,7 @@
     terrainGroup.add(ground);
 
     /* invasive juliflora scrub, thinning toward the plant side */
-    var scrubMat = solidMat(0x3a4728, 0.95, 0.0, true);
+    var scrubMat = solidMat(0x35411f, 0.95, 0.0, true);
     var trunkMat = solidMat(0x33281a, 1.0, 0.0, true);
     for (var s = 0; s < (IS_SMALL ? 34 : 72); s++) {
       var a = Math.random() * Math.PI * 2;
@@ -1208,6 +1209,19 @@
       scrub.push(g2);
     }
 
+    /* the odd standing tree among the scrub */
+    var canopyMat = solidMat(0x3a5c33, 0.95, 0, true);
+    for (var tr = 0; tr < (IS_SMALL ? 6 : 12); tr++) {
+      var ta = Math.random() * Math.PI * 2, trr = 9 + Math.random() * 22, ts = 1.1 + Math.random() * 1.1;
+      var tg = new THREE.Group();
+      var trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.08 * ts, 0.11 * ts, 1.4 * ts, 6), trunkMat);
+      trunk.position.y = 0.7 * ts; tg.add(trunk);
+      var can = new THREE.Mesh(new THREE.IcosahedronGeometry(0.95 * ts, 1), canopyMat);
+      can.position.y = 1.8 * ts; can.scale.set(1, 0.8, 1); tg.add(can);
+      tg.position.set(Math.cos(ta) * trr, 0, Math.sin(ta) * trr);
+      terrainGroup.add(tg);
+    }
+
     /* dry dust hanging over the land */
     dustPoints = makeFallField(IS_SMALL ? 500 : 1200, 60, 14, 40, 0xD9B382, 0x8a7355, 0.055, 0.35);
     dustPoints.position.y = 5;
@@ -1216,76 +1230,165 @@
     scene.add(terrainGroup);
   }
 
-  /* --- the pyrolysis unit ------------------------------------------------ */
+  /* --- the pyrolysis yard ------------------------------------------------
+     A working compound rather than a machine: feedstock in on the left, a
+     row of retort kilns in the middle, the condenser tanks behind them, the
+     biochar charging bay in front and the briquette shed on the right. The
+     five process markers sit on the thing they describe. */
   function buildPlant() {
     plantGroup = new THREE.Group();
     plantGroup.position.set(3.9, PY, 0);
+    plantGroup.rotation.y = 0.32;
     plantGroup.visible = false;
 
-    var base = new THREE.Mesh(new THREE.CylinderGeometry(3.5, 3.8, 0.28, 64), solidMat(0x131f18, 0.72, 0.35));
-    base.position.y = -1.5;
-    plantGroup.add(base);
+    var Y0 = -1.36;                                   /* yard surface, local */
+    var earthMat = solidMat(0x5a4a34, 1.0, 0.0, true);
+    var woodMat  = solidMat(0x6b4f33, 0.95, 0.0, true);
+    var brushMat = solidMat(0x4e5a33, 0.95, 0.0, true);
+    var ironMat  = solidMat(0x3a3532, 0.65, 0.35, true);
+    var ironDark = solidMat(0x2a2624, 0.7, 0.3, true);
+    var brickMat = solidMat(0x7a4a34, 0.95, 0.0, true);
+    var pipeMat  = solidMat(0x4d4844, 0.55, 0.5);
+    var wallMat  = solidMat(0x8b7d66, 0.95, 0.0, true);
+    var roofMat  = solidMat(0x6e5a48, 0.85, 0.15, true);
+    var charMat  = solidMat(0x151512, 0.98, 0.02, true);
+    var juteMat  = solidMat(0xB09A78, 0.95, 0.0, true);
+    var tankMat  = solidMat(0x8a7a5a, 0.5, 0.45);
+    var tarMat   = solidMat(0x3b332c, 0.35, 0.5);
+    var leafMat  = solidMat(0x3f6b3a, 0.95, 0.0, true);
+    var trunkMat = solidMat(0x4a3a26, 1.0, 0.0, true);
 
-    var baseRim = new THREE.Mesh(new THREE.TorusGeometry(3.52, 0.026, 8, 96), glowMat(0x2FBF77, 0.8));
-    baseRim.rotation.x = Math.PI / 2; baseRim.position.y = -1.35;
-    plantGroup.add(baseRim);
-
-    plantCore = new THREE.Group();
-    var column = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.82, 2.9, 32),
-      new THREE.MeshStandardMaterial({ color: 0x182822, roughness: 0.4, metalness: 0.8,
-        emissive: new THREE.Color(0x0d5f4a), emissiveIntensity: 0.55 }));
-    column.position.y = 0.05;
-    var cap = new THREE.Mesh(new THREE.SphereGeometry(0.62, 28, 20, 0, Math.PI * 2, 0, Math.PI / 2), solidMat(0x1f352c, 0.3, 0.9));
-    cap.position.y = 1.5;
-    var stack = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.22, 1.5, 20), solidMat(0x24382f, 0.5, 0.7));
-    stack.position.set(0.95, 1.0, -0.35);
-    var coreGlow = new THREE.Mesh(new THREE.SphereGeometry(0.30, 24, 24), glowMat(0x2FBF77, 0.28));
-    coreGlow.position.y = 0.35;
-    plantCore.add(column, cap, stack, coreGlow);
-    plantGroup.add(plantCore);
-
-    for (var i = 0; i < 6; i++) {
-      var a = (i / 6) * Math.PI * 2;
-      var k = new THREE.Group();
-      var body = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.46, 1.15, 26),
-        new THREE.MeshStandardMaterial({ color: 0x16241d, roughness: 0.55, metalness: 0.65,
-          emissive: new THREE.Color(0x1a4a3a), emissiveIntensity: 0.35 }));
-      var lid = new THREE.Mesh(new THREE.CylinderGeometry(0.47, 0.47, 0.09, 26),
-        new THREE.MeshStandardMaterial({ color: 0x2FBF77, roughness: 0.3, metalness: 0.6,
-          emissive: new THREE.Color(0x2FBF77), emissiveIntensity: 0.35 }));
-      lid.position.y = 0.62;
-      var flame = new THREE.Mesh(new THREE.SphereGeometry(0.15, 18, 18), glowMat(0xF0913A, 0.28));
-      flame.position.y = 0.78;
-      var pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 1.55, 10), solidMat(0x2c4038, 0.5, 0.8));
-      pipe.rotation.z = Math.PI / 2; pipe.position.set(-0.85, 0.45, 0);
-      k.add(body, lid, flame, pipe);
-      k.position.set(Math.cos(a) * 2.35, -0.78, Math.sin(a) * 2.35);
-      k.rotation.y = -a;
-      k.userData = { flame: flame, lid: lid, phase: i * 0.9 };
-      plantGroup.add(k);
-      kilns.push(k);
+    function box(w, h, d, mat, x, y, z) {
+      var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); return m;
+    }
+    function cyl(rt, rb, h, seg, mat, x, y, z) {
+      var m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat); m.position.set(x, y, z); return m;
     }
 
-    plantRing = new THREE.Mesh(new THREE.TorusGeometry(3.0, 0.012, 8, 140), glowMat(0x5FC9B0, 0.55));
-    plantRing.rotation.x = Math.PI / 2; plantRing.position.y = 0.35;
-    plantGroup.add(plantRing);
-    plantSpin = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.008, 8, 120), glowMat(0x2FBF77, 0.45));
-    plantSpin.rotation.x = Math.PI / 2.35; plantSpin.position.y = 0.9;
-    plantGroup.add(plantSpin);
+    /* compacted yard and its kerb */
+    plantGroup.add(box(10.6, 0.14, 7.2, earthMat, 0, Y0 - 0.07, 0));
+    plantGroup.add(box(10.8, 0.06, 0.12, brickMat, 0, Y0 + 0.03, -3.6));
+    for (var f = 0; f < 9; f++) plantGroup.add(cyl(0.035, 0.04, 0.6, 5, woodMat, -4.8 + f * 1.2, Y0 + 0.3, -3.62));
 
-    var dust = makeDriftField(IS_SMALL ? 260 : 620, 2.6, 3.4, 0x2FBF77, 0x5FC9B0, 0.056);
-    plantGroup.add(dust);
-    plantGroup.userData.dust = dust;
+    /* ---- 01 feedstock: a log pile and a heap of cut scrub ---- */
+    var rows = [[5, 0], [4, 0.2], [3, 0.4], [2, 0.6], [1, 0.8]];
+    rows.forEach(function (r, ri) {
+      for (var i = 0; i < r[0]; i++) {
+        var log = cyl(0.11, 0.11, 1.5, 8, woodMat, -3.7, Y0 + 0.11 + ri * 0.19, -0.8 + r[1] + i * 0.4);
+        log.rotation.z = Math.PI / 2;
+        log.rotation.y = (Math.random() - 0.5) * 0.08;
+        plantGroup.add(log);
+      }
+    });
+    for (var bsh = 0; bsh < 7; bsh++) {
+      var b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.32 + Math.random() * 0.22, 0), brushMat);
+      b.position.set(-3.5 + (Math.random() - 0.5) * 1.3, Y0 + 0.2 + Math.random() * 0.18, 1.7 + (Math.random() - 0.5) * 0.9);
+      b.scale.set(1, 0.6, 1); b.rotation.y = Math.random() * 3;
+      plantGroup.add(b);
+    }
 
+    /* ---- 02 the kiln row ---- */
+    var kilnTop = Y0 + 0.18 + 0.85;
+    for (var k = 0; k < 5; k++) {
+      var kz = -2.0 + k * 1.0, kx = 0.2;
+      var g = new THREE.Group();
+      g.add(cyl(0.5, 0.52, 0.18, 18, brickMat, kx, Y0 + 0.09, kz));
+      g.add(cyl(0.42, 0.44, 0.85, 18, ironMat, kx, Y0 + 0.18 + 0.425, kz));
+      var lid = new THREE.Mesh(new THREE.SphereGeometry(0.42, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), ironDark);
+      lid.position.set(kx, kilnTop, kz); g.add(lid);
+      var door = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.16, 0.05), glowMat(0xD97B4F, 0.35));
+      door.position.set(kx + 0.43, Y0 + 0.36, kz); door.rotation.y = Math.PI / 2; g.add(door);
+      g.add(cyl(0.045, 0.05, 0.7, 8, pipeMat, kx + 0.28, kilnTop + 0.42, kz));
+      var smoke = makeFallField(IS_SMALL ? 40 : 70, 0.12, 1.5, 0.12, 0xD9D2C6, 0x8a8177, 0.085, -0.32, 1.3);
+      smoke.position.set(kx + 0.28, kilnTop + 1.55, kz);
+      g.add(smoke);
+      g.userData = { smoke: smoke, door: door, phase: k * 0.9 };
+      plantGroup.add(g);
+      kilns.push(g);
+    }
+    /* syngas / vapour manifold running along the row */
+    var manifold = cyl(0.05, 0.05, 4.6, 8, pipeMat, -0.18, kilnTop + 0.15, 0);
+    manifold.rotation.x = Math.PI / 2;
+    plantGroup.add(manifold);
+    for (var kk = 0; kk < 5; kk++) {
+      var tap = cyl(0.035, 0.035, 0.4, 6, pipeMat, 0.0, kilnTop + 0.15, -2.0 + kk);
+      tap.rotation.z = Math.PI / 2; plantGroup.add(tap);
+    }
+    var run = cyl(0.05, 0.05, 2.1, 8, pipeMat, 0.87, kilnTop + 0.15, 2.3);
+    run.rotation.z = Math.PI / 2; plantGroup.add(run);
+    plantGroup.add(cyl(0.05, 0.05, 0.9, 8, pipeMat, 1.9, kilnTop - 0.3, 2.3));
+
+    /* ---- 05 condenser: vinegar tank and tar drum ---- */
+    plantGroup.add(cyl(0.45, 0.47, 0.95, 20, tankMat, 1.9, Y0 + 0.475, 2.7));
+    var dome = new THREE.Mesh(new THREE.SphereGeometry(0.45, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), tankMat);
+    dome.position.set(1.9, Y0 + 0.95, 2.7); plantGroup.add(dome);
+    plantGroup.add(cyl(0.32, 0.32, 0.7, 18, tarMat, 2.95, Y0 + 0.35, 2.95));
+    var tarPipe = cyl(0.03, 0.03, 0.9, 6, pipeMat, 2.42, Y0 + 0.5, 2.85);
+    tarPipe.rotation.z = Math.PI / 2;
+    plantGroup.add(tarPipe);
+
+    /* ---- 03 biochar charging bay ---- */
+    plantGroup.add(box(1.9, 0.6, 0.12, brickMat, -1.6, Y0 + 0.3, 1.65));
+    plantGroup.add(box(0.12, 0.6, 1.3, brickMat, -2.55, Y0 + 0.3, 2.3));
+    plantGroup.add(box(0.12, 0.6, 1.3, brickMat, -0.65, Y0 + 0.3, 2.3));
+    for (var c = 0; c < 18; c++) {
+      var ch = new THREE.Mesh(new THREE.IcosahedronGeometry(0.11 + Math.random() * 0.1, 0), charMat);
+      var ca = Math.random() * 6.28, cd = Math.random() * 0.55;
+      ch.position.set(-1.6 + Math.cos(ca) * cd, Y0 + 0.1 + Math.random() * 0.22 + (0.55 - cd) * 0.35, 2.3 + Math.sin(ca) * cd * 0.7);
+      ch.rotation.set(Math.random() * 3, Math.random() * 3, 0);
+      plantGroup.add(ch);
+    }
+    /* the amendments waiting to be blended in */
+    [[0x5b3f2a, -2.75, 3.15], [0x8a8a84, -2.3, 3.3], [0xc9bfa5, -1.85, 3.32], [0x9a6b3a, -1.4, 3.2]].forEach(function (am) {
+      var heap = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.26, 10), solidMat(am[0], 1, 0, true));
+      heap.position.set(am[1], Y0 + 0.13, am[2]);
+      plantGroup.add(heap);
+    });
+
+    /* ---- 04 briquette shed with press and drying racks ---- */
+    plantGroup.add(box(2.3, 0.08, 1.9, wallMat, 2.7, Y0 + 0.04, -0.7));
+    plantGroup.add(box(2.3, 1.15, 0.1, wallMat, 2.7, Y0 + 0.6, -1.6));
+    plantGroup.add(box(0.1, 1.15, 1.9, wallMat, 1.6, Y0 + 0.6, -0.7));
+    plantGroup.add(box(0.1, 1.15, 1.9, wallMat, 3.8, Y0 + 0.6, -0.7));
+    var roofL = box(1.3, 0.06, 2.1, roofMat, 2.12, Y0 + 1.45, -0.7); roofL.rotation.z = 0.42;
+    var roofR = box(1.3, 0.06, 2.1, roofMat, 3.28, Y0 + 1.45, -0.7); roofR.rotation.z = -0.42;
+    plantGroup.add(roofL, roofR);
+    plantGroup.add(box(0.5, 0.72, 0.5, ironMat, 2.2, Y0 + 0.44, -0.9));
+    var wheel = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.03, 8, 20), ironDark);
+    wheel.position.set(2.2, Y0 + 0.9, -0.9); plantGroup.add(wheel);
+    for (var sh = 0; sh < 3; sh++) {
+      var shelfY = Y0 + 0.3 + sh * 0.3;
+      plantGroup.add(box(1.0, 0.04, 0.6, woodMat, 3.25, shelfY, -0.6));
+      for (var bq = 0; bq < 6; bq++) {
+        plantGroup.add(cyl(0.06, 0.06, 0.08, 6, charMat, 2.85 + bq * 0.16, shelfY + 0.06, -0.6 + ((bq % 2) ? 0.14 : -0.12)));
+      }
+    }
+
+    /* trees around the compound */
+    [[-4.9, -2.6, 1.0], [4.9, -2.9, 1.15], [-4.6, 3.4, 0.9], [5.1, 3.1, 1.05], [0.2, -3.9, 0.95]].forEach(function (tr) {
+      var tg = new THREE.Group();
+      tg.add(cyl(0.07, 0.09, 0.95 * tr[2], 6, trunkMat, 0, Y0 + 0.47 * tr[2], 0));
+      var can = new THREE.Mesh(new THREE.IcosahedronGeometry(0.7 * tr[2], 1), leafMat);
+      can.position.y = Y0 + 1.25 * tr[2]; can.scale.set(1, 0.85, 1); tg.add(can);
+      var can2 = new THREE.Mesh(new THREE.IcosahedronGeometry(0.45 * tr[2], 0), leafMat);
+      can2.position.set(0.35 * tr[2], Y0 + 1.55 * tr[2], 0.2); tg.add(can2);
+      tg.position.set(tr[0], 0, tr[1]);
+      plantGroup.add(tg);
+    });
+
+    /* the five process markers, on the thing they describe */
     var NODE_POS = [
-      [-3.05,  0.95,  1.25], [ 0.00, 2.35,  0.00], [ 2.55, 0.20,  1.85],
-      [ 3.15,  0.75, -1.35], [-1.70, 1.55, -2.55], [-2.30, -0.55, -2.05]
+      [-3.6, Y0 + 1.75, 0.4],    /* feedstock pile */
+      [ 0.2, Y0 + 2.15, 0.0],    /* kiln row */
+      [-1.6, Y0 + 1.45, 2.3],    /* charging bay */
+      [ 2.7, Y0 + 2.05, -0.7],   /* briquette shed */
+      [ 2.3, Y0 + 1.85, 2.8]     /* condenser tanks */
     ];
     PROCESS.forEach(function (p, i) {
       var n = new THREE.Group();
-      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.125, 1), glowMat(0x2FBF77, 0.7));
-      var halo = new THREE.Mesh(new THREE.SphereGeometry(0.30, 18, 18), glowMat(0x2FBF77, 0.13));
-      var ring = new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.008, 8, 40), glowMat(0x5FC9B0, 0.75));
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.11, 1), glowMat(0x7FD6A5, 0.7));
+      var halo = new THREE.Mesh(new THREE.SphereGeometry(0.27, 18, 18), glowMat(0x3FA06B, 0.13));
+      var ring = new THREE.Mesh(new THREE.TorusGeometry(0.23, 0.007, 8, 40), glowMat(0x9FD9D0, 0.75));
       ring.rotation.x = Math.PI / 2;
       n.add(core, halo, ring);
       n.position.fromArray(NODE_POS[i]);
@@ -1419,83 +1522,198 @@
     scene.add(productGroup);
   }
 
-  /* --- the soil profile: where the carbon ends up ------------------------ */
-  function buildSoil() {
-    soilGroup = new THREE.Group();
-    soilGroup.position.set(0, UNDER, 0);
-    soilGroup.visible = false;
+  /* --- the carbon cycle: six stations on a tilted ring ------------------
+     Air → plants → collection → kiln → biochar → soil, and round again.
+     Stations stay upright on a ring that leans away from the viewer; the
+     flow of carbon runs around it as a stream of particles. */
+  var RING_VS = [
+    'attribute float aRand;', 'uniform float uTime;', 'uniform float uSize;', 'uniform float uScale;',
+    'uniform float uR;', 'uniform float uTilt;', 'uniform float uSpeed;', 'varying float vR;',
+    'void main(){',
+    '  vR = aRand;',
+    '  float a = aRand * 6.2831853 + uTime * uSpeed;',
+    '  float r = uR + position.x * 0.16;',
+    '  vec3 p = vec3(r * cos(a), -r * sin(a) * sin(uTilt) + position.y * 0.10, r * sin(a) * cos(uTilt));',
+    '  vec4 mv = modelViewMatrix * vec4(p, 1.0);',
+    '  gl_PointSize = uSize * (0.5 + aRand) * (uScale / max(-mv.z, 0.001));',
+    '  gl_Position = projectionMatrix * mv;',
+    '}'
+  ].join('\n');
 
-    var W = 13, D = 5.0;
-    var FACE = D * 0.5;   /* the exposed cross-section plane */
-    [ { h: 1.5, y: 1.85, c: 0x3a2a1a },   /* topsoil — where the char goes */
-      { h: 1.9, y: 0.15, c: 0x574024 },   /* subsoil */
-      { h: 2.2, y: -1.9, c: 0x36332c }    /* weathering parent material */
-    ].forEach(function (L) {
-      var m = new THREE.Mesh(new THREE.BoxGeometry(W, L.h, D), solidMat(L.c, 1.0, 0.0, true));
-      m.position.y = L.y;
-      soilGroup.add(m);
+  var CY = GROUND + 3.3;
+  function ringPoint(a, R, tilt) {
+    return new THREE.Vector3(R * Math.cos(a), -R * Math.sin(a) * Math.sin(tilt), R * Math.sin(a) * Math.cos(tilt));
+  }
+
+  function buildCycle() {
+    cycleGroup = new THREE.Group();
+    cycleGroup.position.set(3.4, CY, -1.2);
+    cycleGroup.visible = false;
+
+    var R = 3.0, TILT = 0.58;
+    var plinthMat = solidMat(0x1d3a2a, 0.9, 0.05, true);
+    var soilMat   = solidMat(0x4a3626, 1.0, 0.0, true);
+    var woodMat   = solidMat(0x6b4f33, 0.95, 0.0, true);
+    var ironMat   = solidMat(0x3a3532, 0.65, 0.35, true);
+    var ironDark  = solidMat(0x2a2624, 0.7, 0.3, true);
+    var brickMat  = solidMat(0x7a4a34, 0.95, 0.0, true);
+    var charMat   = solidMat(0x151512, 0.98, 0.02, true);
+    var juteMat   = solidMat(0xB09A78, 0.95, 0.0, true);
+    var leafMat   = solidMat(0x3f6b3a, 0.95, 0.0, true);
+    var grassMat  = solidMat(0x6a9a58, 0.95, 0.0, true);
+    var trunkMat  = solidMat(0x4a3a26, 1.0, 0.0, true);
+    var cloudMat  = new THREE.MeshStandardMaterial({ color: 0xE3EBE6, roughness: 1, metalness: 0, transparent: true, opacity: 0.92 });
+
+    /* the ring and its outer echo */
+    var ring = new THREE.Mesh(new THREE.TorusGeometry(R, 0.026, 8, 160), glowMat(0x7FBF8A, 0.55));
+    ring.rotation.x = Math.PI / 2 + TILT;
+    cycleGroup.add(ring);
+    var ring2 = new THREE.Mesh(new THREE.TorusGeometry(R + 0.09, 0.011, 8, 160), glowMat(0x9FD9D0, 0.22));
+    ring2.rotation.x = Math.PI / 2 + TILT;
+    cycleGroup.add(ring2);
+
+    /* the stream of carbon running round it */
+    var N = IS_SMALL ? 500 : 1100;
+    var pos = new Float32Array(N * 3), rnd = new Float32Array(N);
+    for (var i = 0; i < N; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 2; pos[i * 3 + 1] = (Math.random() - 0.5) * 2; pos[i * 3 + 2] = 0;
+      rnd[i] = Math.random();
+    }
+    var fg = new THREE.BufferGeometry();
+    fg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    fg.setAttribute('aRand', new THREE.BufferAttribute(rnd, 1));
+    ringFlow = new THREE.Points(fg, registerPoints(new THREE.ShaderMaterial({
+      uniforms: { uTime: { value: 0 }, uSize: { value: 0.11 }, uScale: { value: viewScale() },
+                  uR: { value: R }, uTilt: { value: TILT }, uSpeed: { value: 0.22 }, uOpacity: { value: 0 },
+                  uA: { value: new THREE.Color(0x9FD9D0) }, uB: { value: new THREE.Color(0x3FA06B) } },
+      vertexShader: RING_VS, fragmentShader: DRIFT_FS,
+      transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+    })));
+    cycleGroup.add(ringFlow);
+
+    /* direction arrows at the midpoints */
+    for (var m = 0; m < 6; m++) {
+      var a0 = (270 + m * 60 + 30) * Math.PI / 180;
+      var here = ringPoint(a0, R, TILT), next = ringPoint(a0 + 0.08, R, TILT);
+      var arrow = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.26, 8), glowMat(0x9FD9D0, 0.8));
+      arrow.position.copy(here);
+      arrow.lookAt(next);
+      arrow.rotateX(Math.PI / 2);
+      cycleGroup.add(arrow);
+      cycleArrows.push(arrow);
+    }
+
+    function cyl(rt, rb, h, seg, mat, x, y, z) {
+      var mm = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat); mm.position.set(x, y, z); return mm;
+    }
+
+    /* station models, each upright on a small plinth */
+    var BUILD = [
+      function () {                                  /* air */
+        var g = new THREE.Group();
+        [[0, 0.62, 0, 0.30], [-0.32, 0.55, 0.05, 0.22], [0.34, 0.56, -0.02, 0.24], [0.1, 0.78, 0.08, 0.2], [-0.12, 0.42, -0.14, 0.18]].forEach(function (c) {
+          var p = new THREE.Mesh(new THREE.SphereGeometry(c[3], 14, 12), cloudMat); p.position.set(c[0], c[1], c[2]); g.add(p);
+        });
+        g.userData.cloud = true;
+        return g;
+      },
+      function () {                                  /* plants */
+        var g = new THREE.Group();
+        [[-0.22, 1.0], [0.26, 0.78]].forEach(function (t) {
+          g.add(cyl(0.05, 0.07, 0.5 * t[1], 6, trunkMat, t[0], 0.25 * t[1], 0));
+          var can = new THREE.Mesh(new THREE.ConeGeometry(0.34 * t[1], 0.9 * t[1], 8), leafMat);
+          can.position.set(t[0], 0.85 * t[1], 0); g.add(can);
+        });
+        for (var q = 0; q < 6; q++) {
+          var tuft = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.26, 4), grassMat);
+          tuft.position.set(-0.45 + q * 0.18, 0.13, 0.3 - (q % 2) * 0.15); tuft.rotation.z = (Math.random() - 0.5) * 0.4; g.add(tuft);
+        }
+        return g;
+      },
+      function () {                                  /* collection */
+        var g = new THREE.Group();
+        for (var b = 0; b < 7; b++) {
+          var ang = (b / 6) * Math.PI * 2, rr = b === 6 ? 0 : 0.11;
+          var st = cyl(0.05, 0.05, 0.9, 6, woodMat, 0, 0.16 + Math.sin(ang) * rr, Math.cos(ang) * rr);
+          st.rotation.z = Math.PI / 2; g.add(st);
+        }
+        var rope = new THREE.Mesh(new THREE.TorusGeometry(0.17, 0.02, 6, 16), juteMat);
+        rope.rotation.y = Math.PI / 2; rope.position.y = 0.16; g.add(rope);
+        var sack = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), juteMat);
+        sack.scale.set(1, 1.25, 0.85); sack.position.set(0.05, 0.27, -0.45); g.add(sack);
+        return g;
+      },
+      function () {                                  /* kiln */
+        var g = new THREE.Group();
+        g.add(cyl(0.42, 0.44, 0.14, 16, brickMat, 0, 0.07, 0));
+        g.add(cyl(0.34, 0.36, 0.7, 16, ironMat, 0, 0.49, 0));
+        var lid = new THREE.Mesh(new THREE.SphereGeometry(0.34, 16, 9, 0, Math.PI * 2, 0, Math.PI / 2), ironDark);
+        lid.position.y = 0.84; g.add(lid);
+        g.add(cyl(0.04, 0.045, 0.5, 8, solidMat(0x4d4844, 0.55, 0.5), 0.22, 1.05, 0));
+        var smoke = makeFallField(50, 0.1, 1.1, 0.1, 0xD9D2C6, 0x8a8177, 0.08, -0.3, 1.2);
+        smoke.position.set(0.22, 1.85, 0); g.add(smoke);
+        g.userData.smoke = smoke;
+        return g;
+      },
+      function () {                                  /* biochar */
+        var g = new THREE.Group();
+        var sheet = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.03, 0.95), juteMat);
+        sheet.position.y = 0.015;
+        g.add(sheet);
+        for (var c = 0; c < 14; c++) {
+          var ch = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1 + Math.random() * 0.09, 0), charMat);
+          var ca = Math.random() * 6.28, cd = Math.random() * 0.34;
+          ch.position.set(Math.cos(ca) * cd, 0.08 + Math.random() * 0.16 + (0.34 - cd) * 0.5, Math.sin(ca) * cd);
+          ch.rotation.set(Math.random() * 3, Math.random() * 3, 0); g.add(ch);
+        }
+        return g;
+      },
+      function () {                                  /* soil */
+        var g = new THREE.Group();
+        g.add(cyl(0.52, 0.5, 0.24, 18, soilMat, 0, 0.12, 0));
+        for (var sp = 0; sp < 5; sp++) {
+          var shoot = new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.34, 5), grassMat);
+          var sa = sp * 1.26, sd = 0.12 + (sp % 2) * 0.16;
+          shoot.position.set(Math.cos(sa) * sd, 0.4, Math.sin(sa) * sd); shoot.rotation.z = (Math.random() - 0.5) * 0.3; g.add(shoot);
+        }
+        for (var sk = 0; sk < 26; sk++) {
+          var fl = new THREE.Mesh(new THREE.IcosahedronGeometry(0.025, 0), charMat);
+          var fa = Math.random() * 6.28, fd = Math.random() * 0.44;
+          fl.position.set(Math.cos(fa) * fd, 0.245, Math.sin(fa) * fd); g.add(fl);
+        }
+        [[-0.2, 0.0], [0.15, 0.12], [0.02, -0.18]].forEach(function (rt) {
+          g.add(cyl(0.012, 0.03, 0.55, 5, juteMat, rt[0], -0.27, rt[1]));
+        });
+        return g;
+      }
+    ];
+
+    CYCLE.forEach(function (c, i) {
+      var a = (270 + i * 60) * Math.PI / 180;
+      var st = new THREE.Group();
+      st.position.copy(ringPoint(a, R, TILT));
+      st.add(cyl(0.6, 0.66, 0.08, 24, plinthMat, 0, -0.04, 0));
+      var item = BUILD[i]();
+      st.add(item);
+
+      var n = new THREE.Group();
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), glowMat(0x9FD9D0, 0.75));
+      var halo = new THREE.Mesh(new THREE.SphereGeometry(0.25, 16, 16), glowMat(0x6FA8A1, 0.13));
+      var rg   = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.007, 8, 36), glowMat(0x9FD9D0, 0.7));
+      rg.rotation.x = Math.PI / 2;
+      n.add(core, halo, rg);
+      n.position.set(0, 1.55, 0);
+      n.userData = { kind: 'cycle', index: i, core: core, halo: halo, ring: rg, phase: i * 1.2 };
+      core.userData.hot = n; halo.userData.hot = n;
+      st.add(n);
+
+      st.userData = { item: item, node: n, baseY: st.position.y, phase: i * 0.9 };
+      cycleGroup.add(st);
+      cycleStations.push(st);
+      cycleNodes.push(n);
     });
 
-    /* surface crust and a thin line of standing crop */
-    var crust = new THREE.Mesh(new THREE.BoxGeometry(W, 0.12, D), solidMat(0x7a6240, 1.0, 0.0, true));
-    crust.position.y = 2.66;
-    soilGroup.add(crust);
-    for (var c = 0; c < 16; c++) {
-      var stalk = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.03, 0.55 + Math.random() * 0.3, 5),
-        solidMat(0x4e7c3a, 0.9, 0, true));
-      stalk.position.set((Math.random() - 0.5) * (W - 1), 2.98, (Math.random() - 0.5) * (D - 1.2));
-      stalk.rotation.z = (Math.random() - 0.5) * 0.3;
-      soilGroup.add(stalk);
-    }
-
-    /* biochar embedded in the root zone — dark, so it reads against the soil */
-    var SP = IS_SMALL ? 260 : 620;
-    var sp = new Float32Array(SP * 3);
-    for (var i = 0; i < SP; i++) {
-      sp[i * 3]     = (Math.random() - 0.5) * (W - 0.6);
-      sp[i * 3 + 1] = 1.15 + Math.random() * 1.4;
-      /* held just proud of the cut face — inside the block they would be
-         hidden by the soil itself and the whole point would be invisible */
-      sp[i * 3 + 2] = FACE + 0.02 + Math.random() * 0.05;
-    }
-    var sg = new THREE.BufferGeometry();
-    sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
-    charSpecks = new THREE.Points(sg, new THREE.PointsMaterial({
-      color: 0x090908, size: 0.13, sizeAttenuation: true, transparent: true, opacity: 1
-    }));
-    soilGroup.add(charSpecks);
-
-    /* a root reaching down through the char layer */
-    var rootMat = solidMat(0x9a875c, 0.95, 0, true);
-    function root(x, z, len, r0) {
-      var tap = new THREE.Mesh(new THREE.CylinderGeometry(r0 * 0.35, r0, len, 6), rootMat);
-      tap.position.set(x, 2.6 - len / 2, z);
-      soilGroup.add(tap);
-      /* hang each branch from the taproot tip: for a rotation of a about z the
-         cylinder's top end sits at centre + (-sin a, cos a) * lb/2 */
-      var yTip = 2.6 - len, lb = len * 0.55;
-      [-0.62, 0.62].forEach(function (a) {
-        var br = new THREE.Mesh(new THREE.CylinderGeometry(r0 * 0.18, r0 * 0.45, lb, 5), rootMat);
-        br.position.set(x + Math.sin(a) * lb / 2, yTip - Math.cos(a) * lb / 2, z);
-        br.rotation.z = a;
-        soilGroup.add(br);
-      });
-    }
-    root(-4.0, FACE + 0.05, 2.1, 0.085);
-    root(0.4, FACE + 0.05, 2.6, 0.095);
-    root(4.4, FACE + 0.05, 1.9, 0.08);
-
-    /* the band where carbon is held — a soft glow at char depth */
-    lockGlow = new THREE.Mesh(new THREE.BoxGeometry(W - 0.4, 1.3, 0.1), glowMat(0x2FBF77, 0.0));
-    lockGlow.position.set(0, 1.85, FACE + 0.12);
-    soilGroup.add(lockGlow);
-
-    /* carbon sinking in from the surface */
-    carbonFall = makeFallField(IS_SMALL ? 400 : 900, W - 1, 7, 0.5, 0x7BD16A, 0x2b2b24, 0.06, 0.9);
-    carbonFall.position.set(0, 3.4, FACE + 0.25);
-    soilGroup.add(carbonFall);
-
-    scene.add(soilGroup);
+    scene.add(cycleGroup);
   }
 
   /* --- restoration nodes in orbit ---------------------------------------- */
@@ -1604,7 +1822,7 @@
     buildTerrain();
     buildPlant();
     buildProducts();
-    buildSoil();
+    buildCycle();
     buildHorizons();
 
     running = true;
@@ -1631,7 +1849,7 @@
       mats[i].opacity = mats[i].userData.baseOpacity * k;
     }
   }
-  var terrainMats, productMats, soilMats;
+  var terrainMats, productMats;
 
   /* =======================================================================
      6. THE JOURNEY — camera stations anchored to DOM elements
@@ -1685,12 +1903,12 @@
 
     /* Act II — the unit standing on that ground */
     { sel: '#solution', dot: 3,
-      cam: [0.4, PY + 1.3, 11.8], tgt: [0.2, PY - 0.30, 0], bg: 0x0B2318,
+      cam: [0.5, PY + 1.7, 10.2], tgt: [0.9, PY - 0.05, 0], bg: 0x0B2318,
       poll: 0.28, rest: 0.32, earthFade: 0, stacks: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     { sel: '.step:last-child', dot: 3, anchor: 'bottom',
-      cam: [-0.4, PY + 1.0, 11.2], tgt: [0.2, PY - 0.30, 0], bg: 0x0B2318,
+      cam: [-0.2, PY + 1.4, 9.8], tgt: [0.9, PY - 0.05, 0], bg: 0x0B2318,
       poll: 0.20, rest: 0.42, earthFade: 0, stacks: 0, terrain: 1, plant: 1, prod: 0, prodLift: 0, soil: 0,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
@@ -1712,13 +1930,13 @@
 
     /* Act IV — below the surface */
     { sel: '#restoration', dot: 5,
-      cam: [0, UNDER + 3.2, 16.4], tgt: [0.4, UNDER + 0.3, 0], bg: 0x140C06,
-      poll: 0.04, rest: 0.75, earthFade: 0, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
+      cam: [0.2, GROUND + 5.3, 10.8], tgt: [0.6, GROUND + 3.0, -1.2], bg: 0x0E2416,
+      poll: 0.04, rest: 0.75, earthFade: 0, stacks: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 1,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     { sel: '#restorationEnd', dot: 5, anchor: 'bottom',
-      cam: [0, UNDER + 2.4, 15.0], tgt: [0.4, UNDER - 0.1, 0], bg: 0x140C06,
-      poll: 0.02, rest: 0.85, earthFade: 0, stacks: 0, terrain: 0, plant: 0, prod: 0, prodLift: 0, soil: 1,
+      cam: [-0.3, GROUND + 5.0, 10.2], tgt: [0.6, GROUND + 2.9, -1.2], bg: 0x0E2416,
+      poll: 0.02, rest: 0.85, earthFade: 0, stacks: 0, terrain: 1, plant: 0, prod: 0, prodLift: 0, soil: 1,
       earthPos: [0, 0, 0], earthScale: 1.0 },
 
     /* Act V — back out to orbit, restored */
@@ -1830,7 +2048,7 @@
   var occluders = [];
   function refreshOccluders() {
     if (window.innerWidth <= 780) { occluders = []; return; }
-    occluders = $$('.step__card, .panel, .horizon, .product, .source, .flow__card, .band-head').reduce(function (acc, el) {
+    occluders = $$('.step__card, .panel, .horizon, .product, .source, .flow__card, .band-head, .caption').reduce(function (acc, el) {
       var r = el.getBoundingClientRect();
       if (r.bottom > -40 && r.top < window.innerHeight + 40 && r.width > 0) {
         acc.push({ l: r.left - 10, r: r.right + 10, t: r.top - 10, b: r.bottom + 10 });
@@ -1850,6 +2068,7 @@
     if (g === 'source')  return state.stacks > 0.55;
     if (g === 'plant')   return state.plant > 0.55;
     if (g === 'product') return state.products > 0.55;
+    if (g === 'cycle')   return state.soil > 0.55;
     return state.restoration > 0.62 && state.stacks < 0.2 &&
            state.plant < 0.25 && state.products < 0.25 && state.soil < 0.25;
   }
@@ -1857,6 +2076,7 @@
     if (g === 'source')  return sourceNodes;
     if (g === 'plant')   return processNodes;
     if (g === 'product') return productNodes;
+    if (g === 'cycle')   return cycleNodes;
     return horizonNodes;
   }
 
@@ -1883,14 +2103,14 @@
   var hovered = null;
   var UI_SELECTOR = '.panel, .step__card, .horizon, .product, .source, .flow__card, .site-header, .modal__card, ' +
                     '.hs, .rail, .act--light, .foot__cards, .foot__lead, .outcome, .scroll-hint, ' +
-                    '.dive-lead, .land-reveal, .product-reveal, .horizon-reveal, a, button, [data-open]';
+                    '.dive-lead, .land-reveal, .product-reveal, .horizon-reveal, .caption, a, button, [data-open]';
 
   function pickNode(clientX, clientY) {
     pointer.x = (clientX / window.innerWidth) * 2 - 1;
     pointer.y = -(clientY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     var pool = [];
-    ['source', 'plant', 'product', 'horizon'].forEach(function (g) {
+    ['source', 'plant', 'product', 'cycle', 'horizon'].forEach(function (g) {
       if (groupLive(g)) nodesFor(g).forEach(function (n) { pool.push(n.userData.core, n.userData.halo); });
     });
     if (!pool.length) return null;
@@ -1998,8 +2218,8 @@
     scene.userData.lifeLight.intensity  = state.restoration * 2.4;
     scene.userData.sunLight.intensity   = Math.max(state.terrain, state.products) * 0.8;
     /* below ground it should read as a lit cut face, not a sunlit wall */
-    scene.userData.key.intensity     = 1.1 - state.soil * 0.88;
-    scene.userData.ambient.intensity = 0.55 - state.soil * 0.30;
+    scene.userData.key.intensity     = 1.1 - state.soil * 0.2;
+    scene.userData.ambient.intensity = 0.55 - state.soil * 0.08;
 
     /* ---------------- the smoke ---------------- */
     /* held back until well into the transition so they never haunt the hero */
@@ -2036,31 +2256,22 @@
       }
     }
 
-    /* ---------------- the pyrolysis unit ---------------- */
+    /* ---------------- the pyrolysis yard ---------------- */
     plantGroup.visible = state.plant > 0.012;
     if (plantGroup.visible) {
       plantGroup.scale.setScalar((0.42 + state.plant * 0.43) * state.plant);
-      plantGroup.rotation.y += dt * 0.085;
-      plantGroup.position.y = PY + Math.sin(t * 0.5) * 0.07;
-      plantRing.rotation.z += dt * 0.35;
-      plantSpin.rotation.z -= dt * 0.55;
-      plantCore.rotation.y -= dt * 0.12;
-      plantGroup.userData.dust.material.uniforms.uTime.value = t * 1.6;
-      plantGroup.userData.dust.material.uniforms.uOpacity.value = state.plant * 0.5;
-
+      plantGroup.rotation.y += dt * 0.022;              /* a slow turntable, not a spin */
       kilns.forEach(function (k, i) {
-        var burn = 0.4 + Math.abs(Math.sin(t * 1.4 + k.userData.phase)) * 0.6;
-        k.userData.flame.scale.setScalar(0.7 + burn * 0.6);
-        k.userData.flame.material.opacity = (0.12 + burn * 0.22) * state.plant;
-        k.userData.lid.material.emissiveIntensity = 0.22 + burn * 0.30;
-        k.position.y = -0.78 + Math.sin(t * 0.9 + i) * 0.03;
+        var burn = 0.5 + Math.abs(Math.sin(t * 0.9 + k.userData.phase)) * 0.5;
+        k.userData.door.material.opacity = (0.18 + burn * 0.3) * state.plant;
+        k.userData.smoke.material.uniforms.uTime.value = t + i * 3.1;
+        k.userData.smoke.material.uniforms.uOpacity.value = state.plant * (0.22 + burn * 0.12);
       });
       processNodes.forEach(function (n, i) {
         var live = (i === activeStep) || (hovered === n);
         var pulse = 0.85 + Math.sin(t * 2.2 + n.userData.phase) * 0.15;
         n.scale.setScalar(damp(n.scale.x, (live ? 1.7 : 1.0) * pulse, 6, dt));
         n.userData.core.rotation.y += dt * 0.9;
-        n.userData.core.rotation.x += dt * 0.5;
         n.userData.ring.rotation.z += dt * (live ? 1.6 : 0.7);
         n.userData.core.material.opacity = 0.7 * state.plant;
         n.userData.halo.material.opacity = (live ? 0.30 : 0.12) * state.plant;
@@ -2092,17 +2303,31 @@
       });
     }
 
-    /* ---------------- the soil profile ---------------- */
-    soilGroup.visible = state.soil > 0.012;
-    if (soilGroup.visible) {
-      setSolids(soilMats, state.soil);
-      soilGroup.rotation.y = Math.sin(t * 0.16) * 0.05;
-      carbonFall.material.uniforms.uTime.value = t;
-      carbonFall.material.uniforms.uOpacity.value = state.soil * 0.65;
-      /* the held band brightens as the reader descends through the flow */
-      var held = clamp((activeFlow + 1) / RESTORATION.length, 0, 1);
-      lockGlow.material.opacity = state.soil * (0.04 + held * 0.16);
-      lockGlow.scale.y = 0.7 + held * 0.5;
+    /* ---------------- the carbon cycle ---------------- */
+    cycleGroup.visible = state.soil > 0.012;
+    if (cycleGroup.visible) {
+      setSolids(cycleMats, state.soil);
+      cycleGroup.scale.setScalar(0.6 + state.soil * 0.4);
+      ringFlow.material.uniforms.uTime.value = t;
+      ringFlow.material.uniforms.uOpacity.value = state.soil * 0.9;
+      cycleArrows.forEach(function (ar, i) { ar.material.opacity = state.soil * (0.45 + Math.sin(t * 2.4 - i * 1.05) * 0.35); });
+      cycleStations.forEach(function (st, i) {
+        var n = st.userData.node, live = (i === activeFlow) || (hovered === n);
+        st.position.y = st.userData.baseY + Math.sin(t * 0.8 + st.userData.phase) * 0.04;
+        st.scale.setScalar(damp(st.scale.x, live ? 1.18 : 1.0, 5, dt));
+        if (st.userData.item.userData.cloud) st.userData.item.rotation.y += dt * 0.15;
+        if (st.userData.item.userData.smoke) {
+          st.userData.item.userData.smoke.material.uniforms.uTime.value = t;
+          st.userData.item.userData.smoke.material.uniforms.uOpacity.value = state.soil * 0.3;
+        }
+        var pulse = 0.85 + Math.sin(t * 2.0 + n.userData.phase) * 0.15;
+        n.scale.setScalar(damp(n.scale.x, (live ? 1.6 : 1.0) * pulse, 6, dt));
+        n.userData.core.rotation.y += dt * 0.8;
+        n.userData.ring.rotation.z += dt * (live ? 1.4 : 0.6);
+        n.userData.core.material.opacity = 0.75 * state.soil;
+        n.userData.halo.material.opacity = (live ? 0.28 : 0.13) * state.soil;
+        n.userData.ring.material.opacity = (live ? 0.9 : 0.6) * state.soil;
+      });
     }
 
     /* ---------------- restoration nodes ---------------- */
@@ -2175,19 +2400,8 @@
     gsap.fromTo('.hero__stats .stat',  { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .8, stagger: .08, ease: 'power3.out', delay: .45 });
     gsap.fromTo('.hero__actions .btn', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .7, stagger: .08, ease: 'power3.out', delay: .65 });
 
-    if (!window.ScrollTrigger) return;
-    gsap.registerPlugin(window.ScrollTrigger);
-    /* transform-only parallax — never opacity, which would defeat the
-       .is-live focus states on the step and flow cards */
-    gsap.utils.toArray('.panel').forEach(function (el) {
-      gsap.fromTo(el, { y: 40 }, { y: -40, ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
-    });
-    gsap.utils.toArray('.horizon, .product').forEach(function (el, i) {
-      gsap.fromTo(el, { y: 26 + (i % 3) * 14 }, { y: -26 - (i % 3) * 14, ease: 'none',
-        scrollTrigger: { trigger: el.parentNode, start: 'top bottom', end: 'bottom top', scrub: 0.8 } });
-    });
-    ScrollTrigger.addEventListener('refresh', measure);
+    /* ScrollTrigger is intentionally not used for parallax: copy that drifts
+       against the scroll reads as floating text over a moving 3D scene. */
   }
 
   /* =======================================================================
@@ -2195,7 +2409,7 @@
      ===================================================================== */
   var LOAD_MSGS = [
     'Warming the soil', 'Counting the smoke', 'Charging six pyrolysis kilns',
-    'Pressing the first briquettes', 'Opening the carbon registry'
+    'Pressing the first briquettes', 'Closing the loop'
   ];
 
   function boot() {
@@ -2216,8 +2430,8 @@
         stackMats   = collectSolids(stacksGroup);
         terrainMats = collectSolids(terrainGroup);
         productMats = collectSolids(productGroup);
-        soilMats    = collectSolids(soilGroup);
-        setSolids(stackMats, 0); setSolids(terrainMats, 0); setSolids(productMats, 0); setSolids(soilMats, 0);
+        cycleMats   = collectSolids(cycleGroup);
+        setSolids(stackMats, 0); setSolids(terrainMats, 0); setSolids(productMats, 0); setSolids(cycleMats, 0);
       } catch (err) {
         console.error('[CE2] WebGL init failed:', err);
         ok = false; running = false;
@@ -2254,7 +2468,7 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(onResize, 120); });
 
   window.CE2 = {
-    SOURCES: SOURCES, PROCESS: PROCESS, PRODUCTS: PRODUCTS, RESTORATION: RESTORATION, HORIZONS: HORIZONS,
+    SOURCES: SOURCES, PROCESS: PROCESS, PRODUCTS: PRODUCTS, CYCLE: CYCLE, HORIZONS: HORIZONS,
     state: state, target: target, journey: journey, stations: STATIONS,
     openModal: openModal, closeModal: closeModal
   };
