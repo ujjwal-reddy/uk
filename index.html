@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F7F5EF" />
+<title>CE² — Carbon · Earth · Environment</title>
+<meta name="description" content="CE² (Carbon Earth Environment Private Limited) — integrated biomass pyrolysis in Anantapur, Andhra Pradesh. Crop-specific biochar, smokeless briquettes, wood vinegar and biochar that holds carbon in farm soil for centuries." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="assets/logo.png" />
+</head>
+<body>
+
+<!-- ============================ LOADING SCREEN ============================ -->
+<div id="loader" class="loader">
+  <div class="loader__inner">
+    <span class="mark mark--xl"><img src="assets/logo.png" alt="" /></span>
+    <div class="loader__title">Carbon &middot; Earth &middot; Environment</div>
+    <div class="loader__bar"><i id="loaderFill"></i></div>
+    <div class="loader__meta">
+      <span id="loaderMsg">Warming the soil</span>
+      <span id="loaderPct">0%</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ 3D CANVAS MOUNT ============================ -->
+<div id="stage" class="stage" aria-hidden="true">
+  <canvas id="webgl"></canvas>
+  <div id="fallback" class="fallback" hidden>
+    <div class="fallback__orb"></div>
+    <p>Your browser could not start WebGL — the full story below still works.</p>
+  </div>
+  <div class="stage__vignette"></div>
+</div>
+
+<!-- projected 3D hotspot markers (injected by script.js) -->
+<div id="hotspots" class="hotspots"></div>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="nav">
+  <div class="header-inner">
+    <a class="brand" href="#hero" data-jump="hero">
+      <img src="assets/logo.png" alt="CE² — Carbon Earth Environment" width="900" height="377" />
+    </a>
+    <nav class="nav__links">
+      <a href="#sources" data-jump="sources">Emissions</a>
+      <a href="#land" data-jump="land">The Land</a>
+      <a href="#solution" data-jump="solution">Process</a>
+      <a href="#productLines" data-jump="productLines">Products</a>
+      <a href="#restoration" data-jump="restoration">Carbon</a>
+      <a href="#horizonCards" data-jump="horizonCards">Horizons</a>
+      <a href="#contact" data-jump="contact" class="nav__cta">Connect</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================ PROGRESS RAIL ============================ -->
+<aside class="rail" id="rail" aria-hidden="true">
+  <div class="rail__line"><i id="railFill"></i></div>
+  <ul class="rail__dots">
+    <li><b></b><em>Origin</em></li>
+    <li><b></b><em>Emissions</em></li>
+    <li><b></b><em>The Land</em></li>
+    <li><b></b><em>The Process</em></li>
+    <li><b></b><em>Products</em></li>
+    <li><b></b><em>Carbon Restored</em></li>
+    <li><b></b><em>Horizons</em></li>
+    <li><b></b><em>Connect</em></li>
+  </ul>
+</aside>
+
+<main id="scroll-root">
+
+  <!-- ======================= HERO — stage ======================= -->
+  <section class="act act--dark" id="hero" data-act="hero">
+    <div class="wrap hero__wrap">
+      <span class="mark mark--lg reveal"><img src="assets/logo.png" alt="" /></span>
+      <p class="eyebrow reveal">Anantapur &amp; Sri Sathya Sai &middot; Andhra Pradesh &middot; India</p>
+      <h1 class="hero__title reveal">
+        We turn the residue<br /> nobody wants into<br />
+        <span class="grad">carbon the earth keeps.</span>
+      </h1>
+      <p class="hero__lede reveal">
+        <strong>Carbon Earth Environment Private Limited</strong> runs an integrated biomass pyrolysis
+        platform that converts invasive scrub and crop residue into crop-specific biochar, smokeless
+        fuel and organic bio-stimulants — and puts the carbon back where it belongs: in the soil,
+        for good.
+      </p>
+      <div class="hero__stats reveal">
+        <div class="stat"><b>Free</b><span>Feedstock, traded for fuel</span></div>
+        <div class="stat"><b>Closed-loop</b><span>Kilns, nothing vented</span></div>
+        <div class="stat"><b>Crop-specific</b><span>Biochar, charged before use</span></div>
+        <div class="stat"><b>Centuries</b><span>Carbon held in the soil</span></div>
+      </div>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#productLines" data-jump="productLines">See the products</a>
+        <a class="btn btn--ghost" href="#restoration" data-jump="restoration">How carbon is restored</a>
+      </div>
+    </div>
+    <div class="scroll-hint"><span></span>Scroll to descend</div>
+  </section>
+
+  <!-- ======================= THE SMOKE — stage ======================= -->
+  <section class="act act--dark act--tall" id="problem" data-act="problem">
+    <div class="wrap">
+      <div class="panel panel--dark panel--danger reveal">
+        <p class="eyebrow eyebrow--danger">Act I &middot; The smoke</p>
+        <h2>Every plume here is carbon leaving the ground for good.</h2>
+        <p class="lede">
+          Carbon dioxide is not an abstraction in this district — it is smoke you can see. Factory
+          stacks, brick and charcoal kilns, diesel borewell pumps, field fires at the end of every
+          harvest and the cooking fire in every kitchen. Each one takes carbon that was locked in
+          biomass or rock and puts it into the air in hours.
+        </p>
+        <p class="hint-line"><span class="pulse"></span>Tap any stack below to see what it emits — and what CE² does about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SOURCES — light ======================= -->
+  <section class="act act--light" id="sources" data-act="sources">
+    <div class="wrap">
+      <header class="band-head reveal">
+        <p class="eyebrow eyebrow--brand">Sources &amp; responses</p>
+        <h2>Six smoke streams. Six things CE² actually does about them.</h2>
+        <p class="lede">
+          CE² is not a carbon-offset scheme bolted onto someone else's emissions. Every line below is
+          a source of smoke in and around Anantapur, paired with the specific part of the CE²
+          operation that displaces it.
+        </p>
+      </header>
+      <div class="source-grid" id="sourceGrid"><!-- injected from the SOURCES dataset --></div>
+    </div>
+  </section>
+
+  <!-- ======================= THE DIVE — stage ======================= -->
+  <section class="act act--dark act--dive" id="anantapur" data-act="anantapur">
+    <div class="dive-lead reveal">
+      <div class="caption">
+        <p class="eyebrow eyebrow--sand">Our solution &middot; 14.68° N, 77.60° E</p>
+        <h2>Our solution starts<br />on the ground, in Anantapur.</h2>
+      </div>
+    </div>
+    <div class="land-reveal reveal">
+      <div class="caption">
+        <p class="eyebrow eyebrow--sand">Anantapur &amp; Sri Sathya Sai</p>
+        <p>India's second-driest districts — and where CE² works.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= THE LAND — light ======================= -->
+  <section class="act act--light" id="land" data-act="land">
+    <div class="wrap">
+      <header class="band-head reveal">
+        <p class="eyebrow eyebrow--brand">The land</p>
+        <h2>An agricultural economy running on a rainfall budget that no longer arrives.</h2>
+        <p class="lede">
+          CE² was founded inside the crisis it is built to solve. These two districts sit in a deep
+          rain shadow, on soils going saline and acidic at the same time.
+        </p>
+      </header>
+      <div class="case-grid reveal">
+        <div class="case"><b>522<small>mm</small></b><span>Average annual rainfall — a fraction of what the cropping pattern assumes.</span></div>
+        <div class="case"><b>2×<small>stress</small></b><span>Degradation on both fronts: salinity from borewell irrigation, acidification from chemical inputs.</span></div>
+        <div class="case"><b>365<small>days</small></b><span>Near-continuous residue burning — groundnut shells, cotton stems, orchard prunings.</span></div>
+        <div class="case"><b>∞<small>spread</small></b><span>Invasive <i>Prosopis juliflora</i> colonising fallow land and drawing down what groundwater remains.</span></div>
+      </div>
+      <div class="loop reveal">
+        <b>The compounding loop</b>
+        <p>less rain → deeper borewells → saltier irrigation → weaker soil structure → more chemical
+        input → more acidification → lower yield → more residue burned → more atmospheric carbon →
+        less rain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= THE PROCESS — stage ======================= -->
+  <section class="act act--dark act--steps" id="solution" data-act="solution">
+    <div class="wrap">
+      <div class="panel panel--dark reveal">
+        <p class="eyebrow">Act II &middot; On the ground</p>
+        <h2>One closed loop. Nothing leaves as waste.</h2>
+        <p class="lede">
+          The CE² Integrated Biomass Pyrolysis Unit takes biomass that is currently burned in the
+          open and routes every fraction of it — solid, gas and liquid — into a product, an input,
+          or permanently stored carbon.
+        </p>
+        <p class="hint-line"><span class="pulse"></span>Tap any marker in the yard — or any card below — for the technical detail.</p>
+      </div>
+    </div>
+    <div class="steps" id="steps"><!-- injected from the PROCESS dataset --></div>
+  </section>
+
+  <!-- ======================= PRODUCTS — stage ======================= -->
+  <section class="act act--dark" id="products" data-act="products">
+    <div class="product-reveal reveal">
+      <div class="caption">
+        <p class="eyebrow">Act III &middot; Straight off the line</p>
+        <p>Four products out of one waste stream.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PRODUCT LINES — light ======================= -->
+  <section class="act act--light" id="productLines" data-act="productLines">
+    <div class="wrap">
+      <header class="band-head reveal">
+        <p class="eyebrow eyebrow--brand">What we start with</p>
+        <h2>Four products, one waste stream.</h2>
+        <p class="lede">
+          These are the lines CE² goes to market with from day one. Every one of them comes out of
+          biomass that would otherwise have been burned in an open field.
+        </p>
+      </header>
+      <div class="product-grid" id="productGrid"><!-- injected from the PRODUCTS dataset --></div>
+
+      <div class="exchange-band reveal" id="productsEnd">
+        <h3>The reciprocal exchange</h3>
+        <p class="lede">
+          The domestic briquette is deliberately priced at cost. It is not a margin line — it is what
+          CE² hands back to the villages that supply the feedstock, which is why the raw material
+          costs nothing and the open burning stops at the source.
+        </p>
+        <div class="exchange">
+          <div class="exchange__side">
+            <b>Village gives</b>
+            <span>Juliflora &middot; bamboo &middot; groundnut shells &middot; cotton stems</span>
+          </div>
+          <div class="exchange__arrow" aria-hidden="true">⇄</div>
+          <div class="exchange__side exchange__side--out">
+            <b>CE² returns</b>
+            <span>Smokeless briquettes at ₹4/kg &middot; biochar for their fields</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CARBON RESTORED — stage ======================= -->
+  <section class="act act--dark act--tall" id="restoration" data-act="restoration">
+    <div class="wrap">
+      <div class="panel panel--dark panel--soil reveal">
+        <p class="eyebrow eyebrow--sand">Act IV &middot; The cycle</p>
+        <h2>How the carbon actually gets restored.</h2>
+        <p class="lede">
+          Carbon restoration is a loop, not a line. Air to plant, plant to kiln, kiln to soil — and
+          from the soil the next crop grows and the loop turns again, leaving a little more carbon
+          in the ground each time round.
+        </p>
+        <p class="hint-line"><span class="pulse"></span>Tap any station on the ring for what happens there.</p>
+      </div>
+    </div>
+
+    <div class="flow" id="carbonFlow"><!-- injected from the RESTORATION dataset --></div>
+
+    <div class="wrap" id="restorationEnd">
+      <div class="panel panel--dark panel--soil reveal">
+        <h3>Why the soil holds it</h3>
+        <p>
+          Pyrolysis rearranges the carbon in biomass into fused aromatic rings. Soil microbes that
+          would strip fresh organic matter in a season cannot break that structure down — so the
+          carbon sits in the pore network for centuries instead of returning to the atmosphere.
+        </p>
+        <div class="outcome">
+          <div><b>Durable</b><span>Century-to-millennium residence time in soil, not a decadal one.</span></div>
+          <div><b>Documented</b><span>Every batch and every field application is logged.</span></div>
+          <div><b>Honest</b><span>Only carbon that goes into the soil is counted as stored — fuel is fuel.</span></div>
+          <div><b>Useful</b><span>The same char raises water-holding capacity, CEC and pH in a degraded field.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= HORIZONS — stage ======================= -->
+  <section class="act act--dark" id="horizons" data-act="horizons">
+    <div class="horizon-reveal reveal">
+      <div class="caption">
+        <p class="eyebrow eyebrow--good">Act V &middot; The same planet, restored</p>
+        <p>Carbon out of the air, into the soil, and held there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= HORIZON CARDS — light ======================= -->
+  <section class="act act--light" id="horizonCards" data-act="horizonCards">
+    <div class="wrap">
+      <header class="band-head reveal">
+        <p class="eyebrow eyebrow--brand">Future horizons</p>
+        <h2>From one plant to a restored landscape.</h2>
+        <p class="lede">
+          Pyrolysis is the beachhead, not the boundary. The same reciprocal model — free feedstock in,
+          durable carbon and rural value out — extends across three restoration pathways.
+        </p>
+      </header>
+      <div class="horizon-grid" id="horizonGrid"><!-- injected from the HORIZONS dataset --></div>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT — light ======================= -->
+  <footer class="act act--light act--foot" id="contact" data-act="contact">
+    <div class="wrap foot__wrap">
+      <div class="foot__lead reveal">
+        <img class="foot__logo" src="assets/logo.png" alt="CE² — Carbon Earth Environment" width="900" height="377" />
+        <h2>Build the loop with us.</h2>
+        <p class="lede">
+          Feedstock villages, orchard and row-crop growers, briquette distributors, carbon buyers and
+          restoration funders — the model only works because every one of those seats is filled.
+        </p>
+      </div>
+      <div class="foot__cards reveal">
+        <div class="fcard"><b>Operations</b><span>Anantapur &amp; Sri Sathya Sai districts, Andhra Pradesh, India</span></div>
+        <div class="fcard"><b>Feedstock</b><span>Juliflora, bamboo, groundnut shells and cotton stems — collected free, paid for in fuel</span></div>
+        <div class="fcard"><b>Process</b><span>Closed-loop slow pyrolysis with syngas recovery and zero liquid discharge</span></div>
+        <div class="fcard"><b>Where the carbon goes</b><span>Into farm soil as crop-specific biochar, held for centuries</span></div>
+      </div>
+      <div class="foot__bar">
+        <span>© <span id="year">2026</span> CE² — Carbon Earth Environment Private Limited</span>
+        <span class="foot__tag">Waste in &middot; Carbon down &middot; Value out</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ============================ MODAL ============================ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__scrim" data-close></div>
+  <article class="modal__card" role="document">
+    <button class="modal__x" data-close aria-label="Close">&#10005;</button>
+    <header class="modal__head">
+      <span class="modal__idx" id="modalIdx">01</span>
+      <div>
+        <p class="modal__kicker" id="modalKicker">Process stage</p>
+        <h3 id="modalTitle">Title</h3>
+      </div>
+    </header>
+    <p class="modal__lede" id="modalLede"></p>
+    <div class="modal__metrics" id="modalMetrics"></div>
+    <div class="modal__body" id="modalBody"></div>
+    <footer class="modal__foot">
+      <button class="btn btn--ghost" id="modalPrev">&#8592; Previous</button>
+      <button class="btn btn--primary" id="modalNext">Next &#8594;</button>
+    </footer>
+  </article>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Diagram of carbon moving from the atmosphere into plants and then into long-term storage in soil as biochar">
+<rect width="1200" height="800" fill="#EFEDE4"/>
+<rect y="0" width="1200" height="330" fill="#DCE7E4"/>
+<g fill="#6FA8A1" opacity=".5">
+  <ellipse cx="220" cy="110" rx="120" ry="40"/><ellipse cx="300" cy="90" rx="80" ry="34"/>
+  <ellipse cx="960" cy="160" rx="140" ry="44"/><ellipse cx="860" cy="140" rx="86" ry="34"/>
+</g>
+<g font-family="DM Sans, Arial, sans-serif" font-weight="700" font-size="26" fill="#3E6B64" letter-spacing="2">
+  <text x="470" y="86">CO₂</text><text x="566" y="120">CO₂</text><text x="662" y="86">CO₂</text>
+</g>
+<g stroke="#3E6B64" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75">
+  <path d="M566 150 C554 210 558 268 566 322"/><path d="M678 116 C666 190 670 262 678 322"/>
+  <path d="M490 116 C478 190 482 262 490 322"/>
+</g>
+<polygon points="566,300 552,272 580,272" fill="#3E6B64" opacity=".75"/>
+<polygon points="678,300 664,272 692,272" fill="#3E6B64" opacity=".75"/>
+<polygon points="490,300 476,272 504,272" fill="#3E6B64" opacity=".75"/>
+<rect y="330" width="1200" height="90" fill="#B9AE93"/>
+<rect y="420" width="1200" height="110" fill="#9A8C6E"/>
+<rect y="530" width="1200" height="270" fill="#7C6E53"/>
+<g transform="translate(0 330)">
+  <g fill="#006035">
+    <path d="M300 0 V-90" stroke="#006035" stroke-width="12" stroke-linecap="round"/>
+    <path d="M300 -84 C220 -94 200 -180 300 -206 C400 -180 380 -94 300 -84 Z"/>
+    <path d="M760 0 V-120" stroke="#006035" stroke-width="12" stroke-linecap="round"/>
+    <path d="M760 -110 C674 -122 656 -212 760 -240 C864 -212 846 -122 760 -110 Z"/>
+  </g>
+  <g stroke="#5C4E36" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M300 0 C280 60 250 92 220 120"/><path d="M300 0 C320 62 352 96 384 126"/><path d="M300 0 V132"/>
+    <path d="M760 0 C740 64 710 100 678 130"/><path d="M760 0 C780 66 812 102 846 134"/><path d="M760 0 V140"/>
+  </g>
+</g>
+<g fill="#1F1F1F">
+  <g opacity=".92">
+    <rect x="120" y="500" width="34" height="34" rx="9"/><rect x="210" y="560" width="28" height="28" rx="8"/>
+    <rect x="330" y="530" width="36" height="36" rx="9"/><rect x="450" y="600" width="30" height="30" rx="8"/>
+    <rect x="560" y="540" width="34" height="34" rx="9"/><rect x="680" y="610" width="28" height="28" rx="8"/>
+    <rect x="800" y="546" width="36" height="36" rx="9"/><rect x="920" y="596" width="30" height="30" rx="8"/>
+    <rect x="1030" y="536" width="34" height="34" rx="9"/><rect x="250" y="660" width="32" height="32" rx="9"/>
+    <rect x="600" y="676" width="30" height="30" rx="8"/><rect x="900" y="686" width="34" height="34" rx="9"/>
+  </g>
+</g>
+<g font-family="DM Sans, Arial, sans-serif" letter-spacing="3">
+  <text x="60" y="290" font-size="20" font-weight="700" fill="#3E6B64">ATMOSPHERE</text>
+  <text x="60" y="386" font-size="20" font-weight="700" fill="#5C4E36">TOPSOIL</text>
+  <text x="60" y="770" font-size="20" font-weight="700" fill="#EFEDE4" opacity=".8">STABLE CARBON · 100+ YEARS</text>
+</g>
+</svg>
